@@ -128,11 +128,6 @@ namespace POS_and_Inventory_System
 
         }
 
-        private void txtPass_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmSecurity_Load(object sender, EventArgs e)
         {
 

@@ -49,23 +49,23 @@ namespace POS_and_Inventory_System
             categories.Sort();
             cboCategory.Items.AddRange(categories.ToArray());
         }
-        public void LoadBrand()
+        public void LoadAuthor()
         {
-            cboBrand.Items.Clear();
-            List<string> brands = new List<string>();
+            cboAuthor.Items.Clear();
+            List<string> authors = new List<string>();
 
             cn.Open();
-            cm = new SqlCommand("SELECT brand FROM tblBrand", cn);
+            cm = new SqlCommand("SELECT author FROM tblAuthor", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
-                brands.Add(dr[0].ToString());
+                authors.Add(dr[0].ToString());
             }
             dr.Close();
             cn.Close();
 
-            brands.Sort();
-            cboBrand.Items.AddRange(brands.ToArray());
+            authors.Sort();
+            cboAuthor.Items.AddRange(authors.ToArray());
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace POS_and_Inventory_System
                 {
                     string bid = " "; string cid = " ";
                     cn.Open();
-                    cm = new SqlCommand("SELECT id FROM tblBrand where brand like '" + cboBrand.Text + "'", cn);
+                    cm = new SqlCommand("SELECT id FROM tblAuthor where author like '" + cboAuthor.Text + "'", cn);
                     dr = cm.ExecuteReader();
                     dr.Read();
                     if (dr.HasRows) { bid = dr[0].ToString(); }
@@ -137,7 +137,7 @@ namespace POS_and_Inventory_System
             txtBarcode.Clear();
             txtPcode.Clear();
             txtBarcode.Clear();
-            cboBrand.Text = "";
+            cboAuthor.Text = "";
             cboCategory.Text = "";
             txtPcode.Focus();
             btnSave.Enabled = true;
@@ -153,7 +153,7 @@ namespace POS_and_Inventory_System
                 {
                     string bid = "", cid = "";
                     cn.Open();
-                    cm = new SqlCommand("SELECT id FROM tblBrand where brand like '" + cboBrand.Text + "'", cn);
+                    cm = new SqlCommand("SELECT id FROM tblAuthor where author like '" + cboAuthor.Text + "'", cn);
                     dr = cm.ExecuteReader();
                     dr.Read();
                     if (dr.HasRows) { bid = dr[0].ToString(); }

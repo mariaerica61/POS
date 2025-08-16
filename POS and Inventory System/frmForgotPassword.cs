@@ -79,11 +79,6 @@ namespace POS_and_Inventory_System
             frm.ShowDialog();
             this.Show();
         }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
    

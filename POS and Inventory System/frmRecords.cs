@@ -150,12 +150,12 @@ namespace POS_and_Inventory_System
             int i = 0;
             dataGridView2.Rows.Clear();
             cn.Open();
-            cm = new SqlCommand("select p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty, p.reorder from tblProduct as p inner join tblBrand as b on p.bid = b.id inner join tblCategory as c on p.cid = c.id", cn);
+            cm = new SqlCommand("select p.pcode, p.barcode, p.pdesc, a.author, c.category, p.price, p.qty, p.reorder from tblProduct as p inner join tblAuthor as a on p.bid = a.id inner join tblCategory as c on p.cid = c.id", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dataGridView2.Rows.Add(i, dr["pcode"].ToString(), dr["barcode"].ToString(), dr["pdesc"].ToString(), dr["brand"].ToString(), dr["category"].ToString(), dr["price"].ToString(), dr["reorder"].ToString(), dr["qty"].ToString());
+                dataGridView2.Rows.Add(i, dr["pcode"].ToString(), dr["barcode"].ToString(), dr["pdesc"].ToString(), dr["author"].ToString(), dr["category"].ToString(), dr["price"].ToString(), dr["reorder"].ToString(), dr["qty"].ToString());
 
             }
 
@@ -322,11 +322,6 @@ namespace POS_and_Inventory_System
             frmInventoryReport frm = new frmInventoryReport();
             frm.LoadCancelledReport("select * from vwCancelledOrder where sdate between '" + dtp5.Value.ToString("yyyy-MM-dd") + "' and '" + dtp6.Value.ToString("yyyy-MM-dd") + "'", param);
             frm.ShowDialog();
-        }
-
-        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

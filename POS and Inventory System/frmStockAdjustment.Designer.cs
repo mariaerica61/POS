@@ -413,9 +413,8 @@
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column3.HeaderText = "BRAND";
+            this.Column3.HeaderText = "AUTHOR";
             this.Column3.Name = "Column3";
-            this.Column3.Width = 89;
             // 
             // Column5
             // 

@@ -101,10 +101,5 @@ namespace POS_and_Inventory_System
             }
            
         }
-
-        private void reportViewer1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

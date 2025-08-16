@@ -81,11 +81,6 @@ namespace POS_and_Inventory_System
         {
 
         }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 

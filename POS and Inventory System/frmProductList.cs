@@ -30,7 +30,7 @@ namespace POS_and_Inventory_System
             frmProduct frm = new frmProduct(this);
             frm.btnSave.Enabled = true;
             frm.btnUpdate.Enabled = false;
-            frm.LoadBrand();
+            frm.LoadAuthor();
             frm.LoadCategory();
             frm.ShowDialog();
         }
@@ -40,7 +40,7 @@ namespace POS_and_Inventory_System
             int i = 0;
             dataGridView3.Rows.Clear();
             cn.Open();
-            cm = new SqlCommand("Select p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price,p.reorder from tblProduct as p inner join tblBrand as b on b.id = p.bid inner join tblCategory as c on c.id = p.cid where p.pdesc like '" + txtSearch.Text + "%'", cn);
+            cm = new SqlCommand("Select p.pcode, p.barcode, p.pdesc, a.author, c.category, p.price,p.reorder from tblProduct as p inner join tblAuthor as a on a.id = p.bid inner join tblCategory as c on c.id = p.cid where p.pdesc like '" + txtSearch.Text + "%'", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -63,7 +63,7 @@ namespace POS_and_Inventory_System
                 frm.txtBarcode.Text = dataGridView3.Rows[e.RowIndex].Cells[2].Value.ToString();
                 frm.txtPdesc.Text = dataGridView3.Rows[e.RowIndex].Cells[3].Value.ToString();
                 frm.txtPrice.Text = dataGridView3.Rows[e.RowIndex].Cells[6].Value.ToString();
-                frm.cboBrand.Text = dataGridView3.Rows[e.RowIndex].Cells[4].Value.ToString();
+                frm.cboAuthor.Text = dataGridView3.Rows[e.RowIndex].Cells[4].Value.ToString();
                 frm.cboCategory.Text = dataGridView3.Rows[e.RowIndex].Cells[5].Value.ToString();
                 frm.txtReorder.Text = dataGridView3.Rows[e.RowIndex].Cells[7].Value.ToString();
                 frm.ShowDialog();

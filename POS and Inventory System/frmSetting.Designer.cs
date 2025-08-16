@@ -190,7 +190,6 @@
             this.txtStore.Name = "txtStore";
             this.txtStore.Size = new System.Drawing.Size(243, 29);
             this.txtStore.TabIndex = 17;
-            this.txtStore.TextChanged += new System.EventHandler(this.txtStore_TextChanged);
             // 
             // label12
             // 

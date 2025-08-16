@@ -1213,7 +1213,7 @@ namespace POS_and_Inventory_System {
             
             private global::System.Data.DataColumn columnpdesc;
             
-            private global::System.Data.DataColumn columnbrand;
+            private global::System.Data.DataColumn columnauthor;
             
             private global::System.Data.DataColumn columncategory;
             
@@ -1282,9 +1282,9 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn brandColumn {
+            public global::System.Data.DataColumn authorColumn {
                 get {
-                    return this.columnbrand;
+                    return this.columnauthor;
                 }
             }
             
@@ -1357,13 +1357,13 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public dtInventoryRow AdddtInventoryRow(string pcode, string barcode, string pdesc, string brand, string category, decimal price, int qty, int reorder) {
+            public dtInventoryRow AdddtInventoryRow(string pcode, string barcode, string pdesc, string author, string category, decimal price, int qty, int reorder) {
                 dtInventoryRow rowdtInventoryRow = ((dtInventoryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         pcode,
                         barcode,
                         pdesc,
-                        brand,
+                        author,
                         category,
                         price,
                         qty,
@@ -1393,7 +1393,7 @@ namespace POS_and_Inventory_System {
                 this.columnpcode = base.Columns["pcode"];
                 this.columnbarcode = base.Columns["barcode"];
                 this.columnpdesc = base.Columns["pdesc"];
-                this.columnbrand = base.Columns["brand"];
+                this.columnauthor = base.Columns["author"];
                 this.columncategory = base.Columns["category"];
                 this.columnprice = base.Columns["price"];
                 this.columnqty = base.Columns["qty"];
@@ -1409,8 +1409,8 @@ namespace POS_and_Inventory_System {
                 base.Columns.Add(this.columnbarcode);
                 this.columnpdesc = new global::System.Data.DataColumn("pdesc", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpdesc);
-                this.columnbrand = new global::System.Data.DataColumn("brand", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbrand);
+                this.columnauthor = new global::System.Data.DataColumn("author", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnauthor);
                 this.columncategory = new global::System.Data.DataColumn("category", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncategory);
                 this.columnprice = new global::System.Data.DataColumn("price", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -3495,17 +3495,17 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string brand {
+            public string author {
                 get {
                     try {
-                        return ((string)(this[this.tabledtInventory.brandColumn]));
+                        return ((string)(this[this.tabledtInventory.authorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'brand\' in table \'dtInventory\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'author\' in table \'dtInventory\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledtInventory.brandColumn] = value;
+                    this[this.tabledtInventory.authorColumn] = value;
                 }
             }
             
@@ -3611,14 +3611,14 @@ namespace POS_and_Inventory_System {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsbrandNull() {
-                return this.IsNull(this.tabledtInventory.brandColumn);
+            public bool IsauthorNull() {
+                return this.IsNull(this.tabledtInventory.authorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetbrandNull() {
-                this[this.tabledtInventory.brandColumn] = global::System.Convert.DBNull;
+            public void SetauthorNull() {
+                this[this.tabledtInventory.authorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
