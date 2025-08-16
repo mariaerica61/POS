@@ -132,6 +132,7 @@
             this.label7.Size = new System.Drawing.Size(185, 24);
             this.label7.TabIndex = 32;
             this.label7.Text = "OLD PASSWORD";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // txtOld
             // 

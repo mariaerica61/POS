@@ -338,6 +338,11 @@ namespace POS_and_Inventory_System
         {
 
         }
+
+        private void txtStore_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

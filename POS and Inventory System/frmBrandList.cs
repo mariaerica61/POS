@@ -12,14 +12,14 @@ using System.Data.SqlClient;
 
 namespace POS_and_Inventory_System
 {
-    public partial class frmAuthorList : Form
+    public partial class frmBrandList : Form
     {
         SqlConnection cn = new SqlConnection("Data Source=MARII\\SQLEXPRESS01;Initial Catalog=POS;Integrated Security=True;Encrypt=False");
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
         DBConnection dbcon = new DBConnection();
 
-        public frmAuthorList()
+        public frmBrandList()
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
@@ -29,13 +29,13 @@ namespace POS_and_Inventory_System
 
         private void button8_Click(object sender, EventArgs e)
         {
-            frmAuthorList authorListForm = new frmAuthorList();
-            authorListForm.Show();
+            frmBrandList brandListForm = new frmBrandList();
+            brandListForm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            frmAuthor frm = new frmAuthor(this);
+            frmBrand frm = new frmBrand(this);
             frm.btnSave.Enabled = true;
             frm.btnUpdate.Enabled = false;
             frm.ShowDialog();
@@ -46,12 +46,12 @@ namespace POS_and_Inventory_System
             int i = 0;
             dataGridView1.Rows.Clear();
             cn.Open();
-            cmd = new SqlCommand("select * from tblAuthor order by author", cn);
+            cmd = new SqlCommand("select * from tblBrand order by brand", cn);
             dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 i += 1;
-                dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["author"].ToString());
+                dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["brand"].ToString());
             }
             cn.Close();
         }
@@ -66,9 +66,9 @@ namespace POS_and_Inventory_System
             string colName = dataGridView1.Columns[e.ColumnIndex].Name;
             if (colName == "Edit")
             {
-                frmAuthor frm = new frmAuthor(this);
+                frmBrand frm = new frmBrand(this);
                 frm.lblID.Text = dataGridView1[1, e.RowIndex].Value.ToString();
-                frm.txtAuthor.Text = dataGridView1[2, e.RowIndex].Value.ToString();
+                frm.txtBrand.Text = dataGridView1[2, e.RowIndex].Value.ToString();
                 frm.btnSave.Enabled = false;
                 frm.btnUpdate.Enabled = true;
                 frm.ShowDialog();
@@ -78,10 +78,10 @@ namespace POS_and_Inventory_System
                 if (MessageBox.Show("Are you sure you want to delete this record?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    cmd = new SqlCommand("delete from tblAuthor where id like '" + dataGridView1 [1, e.RowIndex].Value.ToString() + "'", cn);
+                    cmd = new SqlCommand("delete from tblBrand where id like '" + dataGridView1 [1, e.RowIndex].Value.ToString() + "'", cn);
                     cmd.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Author has been successfully deleted. ", "POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Brand has been successfully deleted. ", "POS", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadRecord();
                    
                 }

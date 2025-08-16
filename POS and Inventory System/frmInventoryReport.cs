@@ -113,7 +113,7 @@ namespace POS_and_Inventory_System
                 SqlDataAdapter da = new SqlDataAdapter();
 
                 cn.Open();
-                da.SelectCommand = new SqlCommand("select p.pcode, p.barcode, p.pdesc, a.author, c.category, p.price, p.qty, p.reorder from tblProduct as p inner join tblAuthor as a on p.bid = a.id inner join tblCategory as c on p.cid= c.id", cn);
+                da.SelectCommand = new SqlCommand("select p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty, p.reorder from tblProduct as p inner join tblBrand as b on p.bid = b.id inner join tblCategory as c on p.cid= c.id", cn);
                 da.Fill(ds.Tables["dtInventory"]);
                 cn.Close();
 

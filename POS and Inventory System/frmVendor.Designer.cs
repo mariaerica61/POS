@@ -215,6 +215,7 @@
             this.txtPerson.Name = "txtPerson";
             this.txtPerson.Size = new System.Drawing.Size(377, 36);
             this.txtPerson.TabIndex = 23;
+            this.txtPerson.TextChanged += new System.EventHandler(this.txtPerson_TextChanged);
             // 
             // label4
             // 

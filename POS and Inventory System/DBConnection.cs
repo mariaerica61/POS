@@ -18,7 +18,7 @@ namespace POS_and_Inventory_System
 
         public string MyConnection()
         {
-            return @"Data Source=MARII\SQLEXPRESS01;Initial Catalog=POS;Integrated Security=True;Encrypt=False";
+            return @"Data Source=MARII\SQLEXPRESS01;Initial Catalog=POS_DEMO_DB;Integrated Security=True;Encrypt=False";
         }
 
         public double DailySales()

@@ -55,7 +55,7 @@
             this.button11 = new System.Windows.Forms.Button();
             this.btnSalesHistory = new System.Windows.Forms.Button();
             this.btnRecords = new System.Windows.Forms.Button();
-            this.btnAuthor = new System.Windows.Forms.Button();
+            this.btnBrand = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnStockIn = new System.Windows.Forms.Button();
             this.btnVendor = new System.Windows.Forms.Button();
@@ -268,7 +268,7 @@
             this.panel3.Controls.Add(this.button11);
             this.panel3.Controls.Add(this.btnSalesHistory);
             this.panel3.Controls.Add(this.btnRecords);
-            this.panel3.Controls.Add(this.btnAuthor);
+            this.panel3.Controls.Add(this.btnBrand);
             this.panel3.Controls.Add(this.btnCategory);
             this.panel3.Controls.Add(this.btnStockIn);
             this.panel3.Controls.Add(this.btnVendor);
@@ -442,21 +442,21 @@
             this.btnRecords.UseVisualStyleBackColor = true;
             this.btnRecords.Click += new System.EventHandler(this.btnRecords_Click);
             // 
-            // btnAuthor
+            // btnBrand
             // 
-            this.btnAuthor.FlatAppearance.BorderSize = 0;
-            this.btnAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAuthor.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAuthor.ForeColor = System.Drawing.Color.White;
-            this.btnAuthor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAuthor.Location = new System.Drawing.Point(47, 250);
-            this.btnAuthor.Name = "btnAuthor";
-            this.btnAuthor.Size = new System.Drawing.Size(129, 35);
-            this.btnAuthor.TabIndex = 8;
-            this.btnAuthor.Text = "Author";
-            this.btnAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAuthor.UseVisualStyleBackColor = true;
-            this.btnAuthor.Click += new System.EventHandler(this.btnAuthor_Click);
+            this.btnBrand.FlatAppearance.BorderSize = 0;
+            this.btnBrand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBrand.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBrand.ForeColor = System.Drawing.Color.White;
+            this.btnBrand.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBrand.Location = new System.Drawing.Point(47, 250);
+            this.btnBrand.Name = "btnBrand";
+            this.btnBrand.Size = new System.Drawing.Size(129, 35);
+            this.btnBrand.TabIndex = 8;
+            this.btnBrand.Text = "Brand";
+            this.btnBrand.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBrand.UseVisualStyleBackColor = true;
+            this.btnBrand.Click += new System.EventHandler(this.btnAuthor_Click);
             // 
             // btnCategory
             // 
@@ -599,7 +599,7 @@
         private System.Windows.Forms.Button btnAdjustment;
         private System.Windows.Forms.Button btnSalesHistory;
         private System.Windows.Forms.Button btnRecords;
-        private System.Windows.Forms.Button btnAuthor;
+        private System.Windows.Forms.Button btnBrand;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button button19;

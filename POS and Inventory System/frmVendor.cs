@@ -130,6 +130,11 @@ namespace POS_and_Inventory_System
         {
             this.Dispose();
         }
+
+        private void txtPerson_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -109,6 +109,7 @@
             this.label5.Size = new System.Drawing.Size(295, 25);
             this.label5.TabIndex = 11;
             this.label5.Text = "and get your password by clicking the ";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
