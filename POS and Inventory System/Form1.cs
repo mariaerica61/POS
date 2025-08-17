@@ -231,7 +231,7 @@ namespace POS_and_Inventory_System
         // Load the author management form into a panel
         private void btnAuthor_Click(object sender, EventArgs e)
         {
-            frmAuthorList frm = new frmAuthorList();
+            frmBrandList frm = new frmBrandList();
             frm.TopLevel = false;
             panel5.Controls.Add(frm);
             frm.BringToFront();

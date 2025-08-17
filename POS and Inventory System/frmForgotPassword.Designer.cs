@@ -284,6 +284,7 @@
             this.txtForgot.Name = "txtForgot";
             this.txtForgot.Size = new System.Drawing.Size(274, 32);
             this.txtForgot.TabIndex = 50;
+            this.txtForgot.TextChanged += new System.EventHandler(this.txtForgot_TextChanged);
             // 
             // label12
             // 

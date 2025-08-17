@@ -95,17 +95,17 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAuthor.cs">
+    <Compile Include="frmBrand.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAuthor.Designer.cs">
-      <DependentUpon>frmAuthor.cs</DependentUpon>
+    <Compile Include="frmBrand.Designer.cs">
+      <DependentUpon>frmBrand.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAuthorList.cs">
+    <Compile Include="frmBrandList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAuthorList.Designer.cs">
-      <DependentUpon>frmAuthorList.cs</DependentUpon>
+    <Compile Include="frmBrandList.Designer.cs">
+      <DependentUpon>frmBrandList.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCancelDetails.cs">
       <SubType>Form</SubType>
@@ -278,11 +278,11 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAuthor.resx">
-      <DependentUpon>frmAuthor.cs</DependentUpon>
+    <EmbeddedResource Include="frmBrand.resx">
+      <DependentUpon>frmBrand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAuthorList.resx">
-      <DependentUpon>frmAuthorList.cs</DependentUpon>
+    <EmbeddedResource Include="frmBrandList.resx">
+      <DependentUpon>frmBrandList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCancelDetails.resx">
       <DependentUpon>frmCancelDetails.cs</DependentUpon>

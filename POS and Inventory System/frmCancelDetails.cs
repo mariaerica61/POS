@@ -73,5 +73,10 @@ namespace POS_and_Inventory_System
         {
 
         }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

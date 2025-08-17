@@ -63,12 +63,12 @@ namespace POS_and_Inventory_System
                 if (MessageBox.Show("Add this item?", stitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    cm = new SqlCommand("INSERT INTO tblStockIn (refno, pcode, sdate, stockinby, vid) VALUES (@refno, @pcode, @sdate, @stockinby, @vid)", cn);
+                    cm = new SqlCommand("INSERT INTO tblStockIn (refno, pcode, sdate, stockinby, vendorid) VALUES (@refno, @pcode, @sdate, @stockinby, @vendorid)", cn);
                     cm.Parameters.AddWithValue("@refno", slist.txtRefNo.Text);
                     cm.Parameters.AddWithValue("@pcode", dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString());
                     cm.Parameters.AddWithValue("@sdate", slist.dt1.Value);
                     cm.Parameters.AddWithValue("@stockinby", slist.txtBy.Text);
-                    cm.Parameters.AddWithValue("@vid", slist.lblVendorID.Text);
+                    cm.Parameters.AddWithValue("@vendorid", slist.lblVendorID.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
 

@@ -11,14 +11,14 @@ using System.Data.SqlClient;
 
 namespace POS_and_Inventory_System
 {
-    public partial class frmAuthor : Form
+    public partial class frmBrand : Form
     {
         SqlConnection cn = new SqlConnection();
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
-        frmAuthorList frmlist;
+        frmBrandList frmlist;
 
-        public frmAuthor(frmAuthorList flist)
+        public frmBrand(frmBrandList flist)
         {
             InitializeComponent();
             cn = new SqlConnection(dbcon.MyConnection());
@@ -33,8 +33,8 @@ namespace POS_and_Inventory_System
         {
             btnSave.Enabled = true;
             btnUpdate.Enabled = false;
-            txtAuthor.Clear();
-            txtAuthor.Focus();
+            txtBrand.Clear();
+            txtBrand.Focus();
 
         }
 
@@ -43,14 +43,14 @@ namespace POS_and_Inventory_System
             try
             {
                
-                if (MessageBox.Show("Are you sure you want to save this author?", "Saving Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to save this brand?", "Saving Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    cm = new SqlCommand("INSERT INTo tblAuthor(author)VALUEs(@author)", cn);
-                    cm.Parameters.AddWithValue("@author", txtAuthor.Text);
+                    cm = new SqlCommand("INSERT INTo tblBrand(brand)VALUEs(@brand)", cn);
+                    cm.Parameters.AddWithValue("@brand", txtBrand.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Author has been successfully saved.");
+                    MessageBox.Show("Brand has been successfully saved.");
                     Clear();
                     frmlist.LoadRecord();
 
@@ -78,21 +78,21 @@ namespace POS_and_Inventory_System
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtAuthor.Text))
+                if (string.IsNullOrWhiteSpace(txtBrand.Text))
                 {
-                    MessageBox.Show("Author field is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtAuthor.Focus();
+                    MessageBox.Show("Brand field is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtBrand.Focus();
                     return;
                 }
 
-                if (MessageBox.Show("Are you sure you want to update this author?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to update this brand?", "Update Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    cm = new SqlCommand("update tblAuthor set author = @author where id like '" + lblID.Text + "'", cn);
-                    cm.Parameters.AddWithValue("@author", txtAuthor.Text);
+                    cm = new SqlCommand("update tblBrand set brand = @brand where id like '" + lblID.Text + "'", cn);
+                    cm.Parameters.AddWithValue("@brand", txtBrand.Text);
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Author has been successfully updated. ");
+                    MessageBox.Show("Brand has been successfully updated. ");
                     Clear();
                     frmlist.LoadRecord();
                     this.Dispose();

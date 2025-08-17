@@ -1,6 +1,6 @@
 ﻿namespace POS_and_Inventory_System
 {
-    partial class frmAuthor
+    partial class frmBrand
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAuthor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBrand));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtAuthor = new System.Windows.Forms.TextBox();
+            this.txtBrand = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -80,9 +80,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(33, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 30);
+            this.label1.Size = new System.Drawing.Size(232, 30);
             this.label1.TabIndex = 2;
-            this.label1.Text = "AUTHOR DETAILS";
+            this.label1.Text = "BRAND DETAILS";
             // 
             // lblName
             // 
@@ -113,20 +113,20 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
             this.label2.Location = new System.Drawing.Point(39, 102);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 36);
+            this.label2.Size = new System.Drawing.Size(165, 36);
             this.label2.TabIndex = 2;
-            this.label2.Text = "AUTHOR NAME";
+            this.label2.Text = "BRAND NAME";
             // 
-            // txtAuthor
+            // txtBrand
             // 
-            this.txtAuthor.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAuthor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtAuthor.Location = new System.Drawing.Point(227, 102);
-            this.txtAuthor.Multiline = true;
-            this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(416, 36);
-            this.txtAuthor.TabIndex = 3;
-            this.txtAuthor.TextChanged += new System.EventHandler(this.txtAuthor_TextChanged);
+            this.txtBrand.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBrand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.txtBrand.Location = new System.Drawing.Point(227, 102);
+            this.txtBrand.Multiline = true;
+            this.txtBrand.Name = "txtBrand";
+            this.txtBrand.Size = new System.Drawing.Size(416, 36);
+            this.txtBrand.TabIndex = 3;
+            this.txtBrand.TextChanged += new System.EventHandler(this.txtAuthor_TextChanged);
             // 
             // btnSave
             // 
@@ -185,7 +185,7 @@
             this.lblID.TabIndex = 13;
             this.lblID.Visible = false;
             // 
-            // frmAuthor
+            // frmBrand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -195,11 +195,11 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtAuthor);
+            this.Controls.Add(this.txtBrand);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "frmAuthor";
+            this.Name = "frmBrand";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmAuthor_Load);
             this.panel1.ResumeLayout(false);
@@ -219,7 +219,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancel;
-        public System.Windows.Forms.TextBox txtAuthor;
+        public System.Windows.Forms.TextBox txtBrand;
         public System.Windows.Forms.Label lblID;
         public System.Windows.Forms.Button btnSave;
         public System.Windows.Forms.Button btnUpdate;

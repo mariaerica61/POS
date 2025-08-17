@@ -79,6 +79,11 @@ namespace POS_and_Inventory_System
             frm.ShowDialog();
             this.Show();
         }
+
+        private void txtForgot_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
    

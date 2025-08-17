@@ -157,6 +157,7 @@
             this.txtVendor.Name = "txtVendor";
             this.txtVendor.Size = new System.Drawing.Size(377, 36);
             this.txtVendor.TabIndex = 15;
+            this.txtVendor.TextChanged += new System.EventHandler(this.txtVendor_TextChanged);
             // 
             // label2
             // 

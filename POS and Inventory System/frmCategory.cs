@@ -105,5 +105,10 @@ namespace POS_and_Inventory_System
         {
 
         }
+
+        private void txtCategory_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

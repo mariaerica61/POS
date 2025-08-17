@@ -50,7 +50,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtReorder = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.cboAuthor = new System.Windows.Forms.ComboBox();
+            this.cboBrand = new System.Windows.Forms.ComboBox();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -247,9 +247,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
             this.label5.Location = new System.Drawing.Point(21, 218);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 36);
+            this.label5.Size = new System.Drawing.Size(93, 36);
             this.label5.TabIndex = 32;
-            this.label5.Text = "AUTHOR";
+            this.label5.Text = "BRAND";
             // 
             // label6
             // 
@@ -305,17 +305,17 @@
             this.label8.TabIndex = 38;
             this.label8.Text = "RE-ORDER LEVEL";
             // 
-            // cboAuthor
+            // cboBrand
             // 
-            this.cboAuthor.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboAuthor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.cboAuthor.FormattingEnabled = true;
-            this.cboAuthor.ItemHeight = 25;
-            this.cboAuthor.Location = new System.Drawing.Point(233, 218);
-            this.cboAuthor.Name = "cboAuthor";
-            this.cboAuthor.Size = new System.Drawing.Size(416, 33);
-            this.cboAuthor.TabIndex = 40;
-            this.cboAuthor.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cboBrand.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboBrand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.cboBrand.FormattingEnabled = true;
+            this.cboBrand.ItemHeight = 25;
+            this.cboBrand.Location = new System.Drawing.Point(233, 218);
+            this.cboBrand.Name = "cboBrand";
+            this.cboBrand.Size = new System.Drawing.Size(416, 33);
+            this.cboBrand.TabIndex = 40;
+            this.cboBrand.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // cboCategory
             // 
@@ -334,7 +334,7 @@
             this.ClientSize = new System.Drawing.Size(675, 468);
             this.ControlBox = false;
             this.Controls.Add(this.cboCategory);
-            this.Controls.Add(this.cboAuthor);
+            this.Controls.Add(this.cboBrand);
             this.Controls.Add(this.txtReorder);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtPrice);
@@ -387,7 +387,7 @@
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.TextBox txtReorder;
         private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.ComboBox cboAuthor;
+        public System.Windows.Forms.ComboBox cboBrand;
         public System.Windows.Forms.ComboBox cboCategory;
     }
 }

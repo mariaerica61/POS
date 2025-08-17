@@ -173,6 +173,7 @@
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(416, 36);
             this.txtCategory.TabIndex = 16;
+            this.txtCategory.TextChanged += new System.EventHandler(this.txtCategory_TextChanged);
             // 
             // label2
             // 

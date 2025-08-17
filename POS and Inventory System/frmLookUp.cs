@@ -38,7 +38,7 @@ namespace POS_and_Inventory_System
             int i = 0;
             dataGridView3.Rows.Clear();
             cn.Open();
-            cm = new SqlCommand("Select p.pcode, p.barcode, p.pdesc, a.author, c.category, p.price,p.qty from tblProduct as p inner join tblAuthor as a on a.id = p.bid inner join tblCategory as c on c.id = p.cid where p.pdesc like '" + txtSearch.Text + "%'", cn);
+            cm = new SqlCommand("Select p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price,p.qty from tblProduct as p inner join tblBrand as b on b.id = p.bid inner join tblCategory as c on c.id = p.cid where p.pdesc like '" + txtSearch.Text + "%'", cn);
             dr = cm.ExecuteReader();
             while (dr.Read())
             {

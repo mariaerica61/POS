@@ -151,21 +151,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>AUTHOR</Value>
-                              <Style>
-                                <FontFamily>now</FontFamily>
-                                <FontSize>12pt</FontSize>
-                                <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
+                              <Value>BRAND</Value>
                               <Style>
                                 <FontFamily>now</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -448,14 +434,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="author">
+                    <Textbox Name="brand">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!author.Value</Value>
+                              <Value>=Fields!brand.Value</Value>
                               <Style>
                                 <FontFamily>now</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -465,7 +451,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>author</rd:DefaultName>
+                      <rd:DefaultName>brand</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1099,8 +1085,8 @@
           <DataField>pdesc</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="author">
-          <DataField>author</DataField>
+        <Field Name="brand">
+          <DataField>brand</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="category">
@@ -1122,7 +1108,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSet1</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Erica\source\repos\POS and Inventory System\POS and Inventory System\DataSet1.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Erica\source\repos\POS\POS\POS and Inventory System\DataSet1.xsd</rd:SchemaPath>
         <rd:TableName>dtInventory</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

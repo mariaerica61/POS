@@ -219,6 +219,7 @@
             this.txtPrice.Size = new System.Drawing.Size(216, 28);
             this.txtPrice.TabIndex = 59;
             this.txtPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
             // 
             // txtQty
             // 

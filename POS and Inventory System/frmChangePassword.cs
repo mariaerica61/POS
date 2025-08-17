@@ -81,6 +81,11 @@ namespace POS_and_Inventory_System
         {
 
         }
+
+        private void txtOld_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

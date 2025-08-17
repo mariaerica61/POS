@@ -167,6 +167,7 @@
             this.txtOld.WaterMark = "Enter something";
             this.txtOld.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtOld.WaterMarkFont = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOld.Click += new System.EventHandler(this.txtOld_Click);
             // 
             // label2
             // 

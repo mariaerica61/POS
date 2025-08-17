@@ -105,5 +105,10 @@ namespace POS_and_Inventory_System
         {
 
         }
+
+        private void txtUser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
