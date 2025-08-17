@@ -50,6 +50,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -84,6 +85,7 @@
             this.Column5,
             this.Column6,
             this.Column7,
+            this.Column9,
             this.Edit,
             this.Delete});
             this.dataGridView3.Cursor = System.Windows.Forms.Cursors.No;
@@ -99,6 +101,7 @@
             this.dataGridView3.Location = new System.Drawing.Point(0, 49);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.RowTemplate.Height = 80;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView3.Size = new System.Drawing.Size(909, 490);
             this.dataGridView3.TabIndex = 9;
@@ -262,6 +265,14 @@
             this.Column7.Name = "Column7";
             this.Column7.Width = 115;
             // 
+            // Column9
+            // 
+            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column9.HeaderText = "Image";
+            this.Column9.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 63;
+            // 
             // Edit
             // 
             this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -322,6 +333,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewImageColumn Column9;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
     }

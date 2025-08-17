@@ -3,17 +3,22 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using System.Drawing;
+using System.IO;
+
 
 
 namespace POS_and_Inventory_System
 {
     public partial class frmProduct : Form
     {
-        SqlConnection cn = new SqlConnection();
+        SqlConnection cn = new SqlConnection("Data Source=MARII\\SQLEXPRESS01;Initial Catalog=POS_DEMO_DB;Integrated Security=True;Encrypt=False");
         SqlCommand cm = new SqlCommand();
         DBConnection dbcon = new DBConnection();
         SqlDataReader dr;
         frmProductList flist;
+        string selectedImagePath = string.Empty;
+
 
         public frmProduct(frmProductList frm)
         {
@@ -50,6 +55,7 @@ namespace POS_and_Inventory_System
             categories.Sort();
             cboCategory.Items.AddRange(categories.ToArray());
         }
+
         public void LoadBrand()
         {
             cboBrand.Items.Clear();
@@ -67,7 +73,9 @@ namespace POS_and_Inventory_System
 
             brands.Sort();
             cboBrand.Items.AddRange(brands.ToArray());
+
         }
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -88,109 +96,107 @@ namespace POS_and_Inventory_System
         {
             try
             {
-                
-                if (MessageBox.Show("Are you sure you want to save this product?", "Save Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                byte[] imgData = null;
+
+                if (PictureBox2.Image != null)
                 {
-                    string bid = " "; string cid = " ";
-                    cn.Open();
-                    cm = new SqlCommand("SELECT id FROM tblBrand where brand like '" + cboBrand.Text + "'", cn);
-                    dr = cm.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows) { bid = dr[0].ToString(); }
-                    dr.Close();
-                    cn.Close();
-
-                    cn.Open();
-                    cm = new SqlCommand("SELECT id FROM tblCategory where category like '" + cboCategory.Text + "'", cn);
-                    dr = cm.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows) { cid = dr[0].ToString(); }
-                    dr.Close();
-                    cn.Close();
-
-                    cn.Open();
-                    cm = new SqlCommand("INSERT into tblProduct(pcode, barcode, pdesc, bid, cid, price, reorder) VALUES (@pcode, @barcode, @pdesc, @bid, @cid, @price, @reorder)", cn);
-                    cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
-                    cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
-                    cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text);
-                    cm.Parameters.AddWithValue("@bid", bid);
-                    cm.Parameters.AddWithValue("@cid", cid);
-                    cm.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
-                    cm.Parameters.AddWithValue("@reorder", int.Parse(txtReorder.Text));
-                    cm.ExecuteNonQuery();
-                    cn.Close();
-                    MessageBox.Show("Product has been successfully saved.");
-                    Clear();
-                    flist.LoadProduct();
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        PictureBox2.Image.Save(ms, PictureBox2.Image.RawFormat);
+                        imgData = ms.ToArray();
+                    }
                 }
 
+                cn.Open();
+                string query = "INSERT INTO tblProduct (pcode, barcode, pdesc, bid, cid, price, reorder, image) " +
+                               "VALUES (@pcode, @barcode, @pdesc, @bid, @cid, @price, @reorder, @image)";
+
+                cm = new SqlCommand(query, cn);
+                cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
+                cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
+                cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text);
+                cm.Parameters.AddWithValue("@bid", cboBrand.SelectedValue);
+                cm.Parameters.AddWithValue("@cid", cboCategory.SelectedValue);
+                cm.Parameters.AddWithValue("@price", Convert.ToDouble(txtPrice.Text));
+                cm.Parameters.AddWithValue("@reorder", Convert.ToInt32(txtReorder.Text));
+                cm.Parameters.AddWithValue("@image", (object)imgData ?? DBNull.Value);
+
+                cm.ExecuteNonQuery();
+
+                MessageBox.Show("Product has been successfully saved.", "Save Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Clear();
+                flist.LoadProduct(); // Refresh the product list
+                this.Dispose();
             }
             catch (Exception ex)
             {
-                cn.Close();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (cn.State == System.Data.ConnectionState.Open)
+                    cn.Close();
             }
         }
 
         public void Clear()
         {
-            txtPrice.Clear();
-            txtBarcode.Clear();
             txtPcode.Clear();
             txtBarcode.Clear();
-            cboBrand.Text = "";
-            cboCategory.Text = "";
-            txtPcode.Focus();
-            btnSave.Enabled = true;
-            btnUpdate.Enabled = false;
+            txtPdesc.Clear();
+            txtPrice.Clear();
+            txtReorder.Clear();
+            cboBrand.SelectedIndex = -1;
+            cboCategory.SelectedIndex = -1;
+            PictureBox2.Image = null;
+            selectedImagePath = "";
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
             {
-               
-                if (MessageBox.Show("Are you sure you want to update this product?", "Save Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                byte[] imgData = null;
+
+                if (PictureBox2.Image != null)
                 {
-                    string bid = "", cid = "";
-                    cn.Open();
-                    cm = new SqlCommand("SELECT id FROM tblBrand where brand like '" + cboBrand.Text + "'", cn);
-                    dr = cm.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows) { bid = dr[0].ToString(); }
-                    dr.Close();
-                    cn.Close();
-
-                    cn.Open();
-                    cm = new SqlCommand("SELECT id FROM tblCategory where category like '" + cboCategory.Text + "'", cn);
-                    dr = cm.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows) { cid = dr[0].ToString(); }
-                    dr.Close();
-                    cn.Close();
-
-                    cn.Open();
-                    cm = new SqlCommand("UPDATE tblProduct SET barcode = @barcode, pdesc = @pdesc, bid = @bid, cid = @cid, price = @price, reorder = @reorder where pcode like @pcode", cn);
-                    cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
-                    cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
-                    cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text);
-                    cm.Parameters.AddWithValue("@bid", bid);
-                    cm.Parameters.AddWithValue("@cid", cid);
-                    cm.Parameters.AddWithValue("@price", double.Parse(txtPrice.Text));
-                    cm.Parameters.AddWithValue("@reorder", int.Parse(txtReorder.Text));
-                    cm.ExecuteNonQuery();
-                    cn.Close();
-                    MessageBox.Show("Product has been successfully updated.");
-                    Clear();
-                    flist.LoadProduct();
-                    this.Dispose();
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        PictureBox2.Image.Save(ms, PictureBox2.Image.RawFormat);
+                        imgData = ms.ToArray();
+                    }
                 }
 
+                cn.Open();
+                string query = "UPDATE tblProduct SET barcode=@barcode, pdesc=@pdesc, bid=@bid, cid=@cid, " +
+                               "price=@price, reorder=@reorder, image=@image WHERE pcode=@pcode";
+
+                cm = new SqlCommand(query, cn);
+                cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
+                cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text);
+                cm.Parameters.AddWithValue("@bid", cboBrand.SelectedValue);
+                cm.Parameters.AddWithValue("@cid", cboCategory.SelectedValue);
+                cm.Parameters.AddWithValue("@price", Convert.ToDouble(txtPrice.Text));
+                cm.Parameters.AddWithValue("@reorder", Convert.ToInt32(txtReorder.Text));
+                cm.Parameters.AddWithValue("@image", (object)imgData ?? DBNull.Value);
+                cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
+
+                cm.ExecuteNonQuery();
+
+                MessageBox.Show("Product has been successfully updated.", "Update Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                flist.LoadProduct(); // Refresh the product list
+                this.Dispose();
             }
             catch (Exception ex)
             {
-                cn.Close();
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (cn.State == System.Data.ConnectionState.Open)
+                    cn.Close();
             }
         }
 
@@ -211,6 +217,56 @@ namespace POS_and_Inventory_System
         }
 
         private void txtPcode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    PictureBox2.Image = Image.FromFile(ofd.FileName);
+                    PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+            }
+        }
+
+        private void LoadProductImage(string pcode)
+        {
+            try
+            {
+                cn.Open();
+                cm = new SqlCommand("SELECT image FROM tblProduct WHERE pcode=@pcode", cn);
+                cm.Parameters.AddWithValue("@pcode", pcode);
+
+                dr = cm.ExecuteReader();
+                if (dr.Read() && dr["image"] != DBNull.Value)
+                {
+                    byte[] imgData = (byte[])dr["image"];
+                    using (MemoryStream ms = new MemoryStream(imgData))
+                    {
+                        PictureBox2.Image = Image.FromStream(ms);
+                        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (dr != null && !dr.IsClosed)
+                    dr.Close();
+                if (cn.State == System.Data.ConnectionState.Open)
+                    cn.Close();
+            }
+        }
+
+        private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

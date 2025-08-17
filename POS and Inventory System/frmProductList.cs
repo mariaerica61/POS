@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace POS_and_Inventory_System
 {
@@ -44,16 +45,16 @@ namespace POS_and_Inventory_System
             {
                 cn.Open();
 
-                // Enhanced search query that searches across barcode, description, brand, and category
                 string searchQuery = @"
-            SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.reorder 
-            FROM tblProduct as p 
-            INNER JOIN tblBrand as b ON b.id = p.bid 
-            INNER JOIN tblCategory as c ON c.id = p.cid 
-            WHERE p.barcode LIKE @searchTerm 
-               OR p.pdesc LIKE @searchTerm 
-               OR b.brand LIKE @searchTerm 
-               OR c.category LIKE @searchTerm";
+            SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.reorder, p.image 
+            FROM tblProduct p 
+            INNER JOIN tblBrand b ON b.id = p.bid 
+            INNER JOIN tblCategory c ON c.id = p.cid 
+            WHERE ISNULL(p.barcode, '') LIKE @searchTerm 
+               OR ISNULL(p.pdesc, '') LIKE @searchTerm 
+               OR ISNULL(b.brand, '') LIKE @searchTerm 
+               OR ISNULL(c.category, '') LIKE @searchTerm
+            ORDER BY p.pcode DESC";
 
                 cm = new SqlCommand(searchQuery, cn);
                 cm.Parameters.AddWithValue("@searchTerm", "%" + txtSearch.Text + "%");
@@ -62,18 +63,53 @@ namespace POS_and_Inventory_System
                 while (dr.Read())
                 {
                     i++;
-                    dataGridView3.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(),
-                                           dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+
+                    // Handle image loading
+                    Image image = null;
+                    try
+                    {
+                        if (dr["image"] != DBNull.Value)
+                        {
+                            byte[] imgBytes = (byte[])dr["image"];
+                            if (imgBytes != null && imgBytes.Length > 0)
+                            {
+                                using (MemoryStream ms = new MemoryStream(imgBytes))
+                                {
+                                    image = Image.FromStream(ms);
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception imgEx)
+                    {
+                        Console.WriteLine("Error loading product image: " + imgEx.Message);
+                        image = null;
+                    }
+
+                    // Add row to DataGridView
+                    dataGridView3.Rows.Add(i,
+                        dr["pcode"].ToString(),
+                        dr["barcode"].ToString(),
+                        dr["pdesc"].ToString(),
+                        dr["brand"].ToString(),
+                        dr["category"].ToString(),
+                        dr["price"].ToString(),
+                        dr["reorder"].ToString(),
+                        image
+                    );
                 }
-                dr.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading products: " + ex.Message, "POS and Inventory System",
-                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error loading products: " + ex.Message,
+                                "POS and Inventory System",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
+                if (dr != null && !dr.IsClosed)
+                    dr.Close();
+
                 if (cn.State == ConnectionState.Open)
                     cn.Close();
             }
@@ -81,12 +117,17 @@ namespace POS_and_Inventory_System
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
+
             string colName = dataGridView3.Columns[e.ColumnIndex].Name;
             if (colName == "Edit")
             {
                 frmProduct frm = new frmProduct(this);
                 frm.btnSave.Enabled = false;
                 frm.btnUpdate.Enabled = true;
+                frm.LoadBrand();
+                frm.LoadCategory();
+
                 frm.txtPcode.Text = dataGridView3.Rows[e.RowIndex].Cells[1].Value.ToString();
                 frm.txtBarcode.Text = dataGridView3.Rows[e.RowIndex].Cells[2].Value.ToString();
                 frm.txtPdesc.Text = dataGridView3.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -94,18 +135,53 @@ namespace POS_and_Inventory_System
                 frm.cboBrand.Text = dataGridView3.Rows[e.RowIndex].Cells[4].Value.ToString();
                 frm.cboCategory.Text = dataGridView3.Rows[e.RowIndex].Cells[5].Value.ToString();
                 frm.txtReorder.Text = dataGridView3.Rows[e.RowIndex].Cells[7].Value.ToString();
-                frm.ShowDialog();
 
-            }
-            else if(colName =="Delete")
-            {
-                if (MessageBox.Show("Are you sure you want to delete this product?", "Delete Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                // Load image into PictureBox2 - FIXED: Changed index from 10 to 8
+                if (dataGridView3.Rows[e.RowIndex].Cells[8].Value != null)
                 {
-                    cn.Open();
-                    Console.WriteLine(dataGridView3.Rows[e.RowIndex].Cells[1].Value.ToString());
-                    cm = new SqlCommand("DELETE FROM tblProduct where pcode like '" + dataGridView3.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", cn);
-                    cm.ExecuteNonQuery();
-                    cn.Close();
+                    frm.PictureBox2.Image = (Image)dataGridView3.Rows[e.RowIndex].Cells[8].Value;
+                    frm.PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+                }
+                else
+                {
+                    // Clear the picture box if no image
+                    frm.PictureBox2.Image = null;
+                }
+
+                frm.ShowDialog();
+            }
+            else if (colName == "Delete")
+            {
+                if (MessageBox.Show("Are you sure you want to delete this product?", "Delete Product",
+                                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        // Ensure connection is closed before opening
+                        if (cn.State == ConnectionState.Open)
+                            cn.Close();
+
+                        cn.Open();
+                        cm = new SqlCommand("DELETE FROM tblProduct where pcode=@pcode", cn);
+                        cm.Parameters.AddWithValue("@pcode", dataGridView3.Rows[e.RowIndex].Cells[1].Value.ToString());
+                        cm.ExecuteNonQuery();
+
+                        MessageBox.Show("Product deleted successfully!", "Success",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error deleting product: " + ex.Message, "Error",
+                                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        // Ensure connection is properly closed
+                        if (cn.State == ConnectionState.Open)
+                            cn.Close();
+                    }
+
+                    // Now reload the products with a clean connection state
                     LoadProduct();
                 }
             }
@@ -123,7 +199,7 @@ namespace POS_and_Inventory_System
 
         private void frmProductList_Load(object sender, EventArgs e)
         {
- 
+            LoadProduct();
 
         }
 
