@@ -25,7 +25,7 @@ namespace POS_and_Inventory_System
         string stitle = "POS and Inventory System";
         frmPOS fpos;
 
-        
+
         public frmQty(frmPOS frmpos)
         {
             InitializeComponent();
@@ -53,13 +53,20 @@ namespace POS_and_Inventory_System
 
         private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // ONLY ADDITION: Block letters and special characters, allow only numbers, backspace, and enter
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter)
+            {
+                e.Handled = true; // This prevents the character from being entered
+                return;
+            }
+
+            // YOUR ORIGINAL CODE UNCHANGED:
             if ((e.KeyChar == 13) && (txtQty.Text != String.Empty))
             {
-
                 String id = "";
                 int cart_qty = 0;
                 bool found = false;
-               
+
                 cn.Open();
                 cm = new SqlCommand("Select * from tblcart where transno = @transno and pcode = @pcode", cn);
                 cm.Parameters.AddWithValue("@transno", fpos.lblTransno.Text);
@@ -94,7 +101,7 @@ namespace POS_and_Inventory_System
                     fpos.txtSearch.Clear();
                     fpos.txtSearch.Focus();
                     fpos.LoadCart();
-                    this.Dispose(); 
+                    this.Dispose();
 
                 }
                 else

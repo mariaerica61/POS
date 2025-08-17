@@ -83,5 +83,10 @@ namespace POS_and_Inventory_System
         {
             LoadStockEntry();
         }
+
+        private void txtSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

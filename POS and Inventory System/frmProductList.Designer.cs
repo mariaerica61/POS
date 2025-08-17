@@ -177,6 +177,7 @@
             this.txtSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.Click += new System.EventHandler(this.txtSearch_Click_1);
             // 
             // pOS_DEMO_DBDataSet
             // 
@@ -234,8 +235,9 @@
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column3.HeaderText = "AUTHOR";
+            this.Column3.HeaderText = "BRAND";
             this.Column3.Name = "Column3";
+            this.Column3.Width = 89;
             // 
             // Column5
             // 

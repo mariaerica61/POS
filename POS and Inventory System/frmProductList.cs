@@ -39,16 +39,44 @@ namespace POS_and_Inventory_System
         {
             int i = 0;
             dataGridView3.Rows.Clear();
-            cn.Open();
-            cm = new SqlCommand("Select p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price,p.reorder from tblProduct as p inner join tblBrand as b on b.id = p.bid inner join tblCategory as c on c.id = p.cid where p.pdesc like '" + txtSearch.Text + "%'", cn);
-            dr = cm.ExecuteReader();
-            while (dr.Read())
+
+            try
             {
-                i++;
-                dataGridView3.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+                cn.Open();
+
+                // Enhanced search query that searches across barcode, description, brand, and category
+                string searchQuery = @"
+            SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.reorder 
+            FROM tblProduct as p 
+            INNER JOIN tblBrand as b ON b.id = p.bid 
+            INNER JOIN tblCategory as c ON c.id = p.cid 
+            WHERE p.barcode LIKE @searchTerm 
+               OR p.pdesc LIKE @searchTerm 
+               OR b.brand LIKE @searchTerm 
+               OR c.category LIKE @searchTerm";
+
+                cm = new SqlCommand(searchQuery, cn);
+                cm.Parameters.AddWithValue("@searchTerm", "%" + txtSearch.Text + "%");
+
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    i++;
+                    dataGridView3.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(),
+                                           dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+                }
+                dr.Close();
             }
-            dr.Close();
-            cn.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading products: " + ex.Message, "POS and Inventory System",
+                               MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (cn.State == ConnectionState.Open)
+                    cn.Close();
+            }
         }
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -107,6 +135,11 @@ namespace POS_and_Inventory_System
         private void button2_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void txtSearch_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
