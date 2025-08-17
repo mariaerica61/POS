@@ -49,6 +49,14 @@ namespace POS_and_Inventory_System
                     return;
                 }
 
+                // ADDED: Password length validation
+                if (txtPass.Text.Length < 8)
+                {
+                    MessageBox.Show("Password must be at least 8 characters long.", "Password Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPass.Focus();
+                    return;
+                }
+
                 bool found = false;
                 cn.Open();
                 cm = new SqlCommand("select * from tblUser where username = @username and password = @password", cn);
@@ -64,7 +72,7 @@ namespace POS_and_Inventory_System
                     _role = dr["role"].ToString();
                     _name = dr["name"].ToString();
                     _pass = dr["password"].ToString();
-                   
+
                 }
 
                 dr.Close();
@@ -72,7 +80,7 @@ namespace POS_and_Inventory_System
 
                 if (found)
                 {
-                   
+
                     if (_role == "Cashier")
                     {
                         MessageBox.Show("Welcome " + _name + "!", "ACCESS GRANTED", MessageBoxButtons.OK, MessageBoxIcon.Information);

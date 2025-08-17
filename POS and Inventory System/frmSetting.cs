@@ -72,6 +72,15 @@ namespace POS_and_Inventory_System
                     return;
                 }
 
+                // ADDED: Password length validation for new user creation
+                if (txtPass.Text.Length < 8)
+                {
+                    MessageBox.Show("Password must be at least 8 characters long.", "Password Error",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPass.Focus();
+                    return;
+                }
+
                 if (txtPass.Text != txtRetype.Text)
                 {
                     MessageBox.Show("Password did not match!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -198,6 +207,15 @@ namespace POS_and_Inventory_System
                     return;
                 }
 
+                // ADDED: Password length validation for password change
+                if (txtNew1.Text.Length < 8)
+                {
+                    MessageBox.Show("New password must be at least 8 characters long.", "Password Error",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtNew1.Focus();
+                    return;
+                }
+
                 if (txtNew1.Text != txtRetype1.Text)
                 {
                     MessageBox.Show("Confirm new password did not match!", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -262,7 +280,7 @@ namespace POS_and_Inventory_System
                 dr.Read();
                 if (dr.HasRows)
                 {
-                    checkBox1.Checked = bool.Parse(dr["i    sactive"].ToString());
+                    checkBox1.Checked = bool.Parse(dr["isactive"].ToString());
                 }
                 else
                 {
@@ -335,6 +353,11 @@ namespace POS_and_Inventory_System
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
         {
 
         }
