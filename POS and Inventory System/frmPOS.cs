@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using Tulpep.NotificationWindow;
 using System.IO;
+using Microsoft.Reporting.Map.WebForms.BingMaps;
 
 namespace POS_and_Inventory_System
 {
@@ -301,25 +302,40 @@ namespace POS_and_Inventory_System
                 if (MessageBox.Show("Remove this item?", stitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     cn.Open();
-                    cm = new SqlCommand("delete from tblCart WHERE id like '" + dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString() + "'", cn);
+                    cm = new SqlCommand("DELETE FROM tblCart WHERE id = @id", cn);
+                    cm.Parameters.AddWithValue("@id", dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
                     cm.ExecuteNonQuery();
                     cn.Close();
-                    MessageBox.Show("Item has successfully removed", stitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    MessageBox.Show("Item has been successfully removed", stitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadCart();
                 }
             }
             else if (colName == "colAdd")
             {
-                int i = 0;
+                int availableStock = 0;
+                string pcode = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                string id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+
+                // Check stock
                 cn.Open();
-                cm = new SqlCommand("select sum(qty) as qty from tblProduct where pcode like '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "' group by pcode", cn);
-                i = int.Parse(cm.ExecuteScalar().ToString());
+                cm = new SqlCommand("SELECT qty FROM tblProduct WHERE pcode = @pcode", cn);
+                cm.Parameters.AddWithValue("@pcode", pcode);
+                availableStock = Convert.ToInt32(cm.ExecuteScalar());
                 cn.Close();
 
-                if (int.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString()) < i)
+                int currentCartQty = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString());
+
+                if (currentCartQty < availableStock)
                 {
                     cn.Open();
-                    cm = new SqlCommand("update tblCart set qty = qty + " + int.Parse(txtQty.Text) + " where transno like '" + lblTransno.Text + "' and pcode like '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'", cn);
+                    cm = new SqlCommand(@"
+                UPDATE tblCart
+                SET qty = qty + 1,
+                    disc = (price * (qty + 1) * disc_percent / 100),
+                    total = (price * (qty + 1)) - (price * (qty + 1) * disc_percent / 100)
+                WHERE id = @id", cn);
+                    cm.Parameters.AddWithValue("@id", id);
                     cm.ExecuteNonQuery();
                     cn.Close();
 
@@ -327,22 +343,24 @@ namespace POS_and_Inventory_System
                 }
                 else
                 {
-                    MessageBox.Show("Remaining quantity on hand is " + i + " !", "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    MessageBox.Show("Remaining quantity on hand is " + availableStock + " !", "Out of Stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else if (colName == "colRemove")
             {
-                int i = 0;
-                cn.Open();
-                cm = new SqlCommand("select sum(qty) as qty from tblCart where pcode like '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "' and transno like '" + lblTransno.Text + "' group by transno, pcode", cn);
-                i = int.Parse(cm.ExecuteScalar().ToString());
-                cn.Close();
+                string id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                int currentCartQty = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString());
 
-                if (i > 1)
+                if (currentCartQty > 1)
                 {
                     cn.Open();
-                    cm = new SqlCommand("update tblCart set qty = qty - " + int.Parse(txtQty.Text) + " where transno like '" + lblTransno.Text + "' and pcode like '" + dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() + "'", cn);
+                    cm = new SqlCommand(@"
+                UPDATE tblCart
+                SET qty = qty - 1,
+                    disc = (price * (qty - 1) * disc_percent / 100),
+                    total = (price * (qty - 1)) - (price * (qty - 1) * disc_percent / 100)
+                WHERE id = @id", cn);
+                    cm.Parameters.AddWithValue("@id", id);
                     cm.ExecuteNonQuery();
                     cn.Close();
 
@@ -350,8 +368,7 @@ namespace POS_and_Inventory_System
                 }
                 else
                 {
-                    MessageBox.Show("Remaining quantity on cart is " + i + " !", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    MessageBox.Show("Remaining quantity in cart is " + currentCartQty + " !", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -398,11 +415,19 @@ namespace POS_and_Inventory_System
         {
             double sales = Double.Parse(lblTotal.Text);
             double discount = Double.Parse(lblDiscount.Text);
-            double vat = sales * dbcon.GetVal();
-            double vatable = sales - vat;
+
+            // Calculate the net sales after discount
+            double netSales = sales - discount;
+
+            // Calculate VAT based on net sales (after discount)
+            double vat = netSales * dbcon.GetVal();
+            double vatable = netSales - vat;
+
             lblVat.Text = vat.ToString("#,##0.00");
             lblVatable.Text = vatable.ToString("#,##0.00");
-            lblDisplayTotal.Text = sales.ToString("#,##0.00");
+
+            // Display the final total (net sales after discount)
+            lblDisplayTotal.Text = netSales.ToString("#,##0.00");
         }
 
 
@@ -440,18 +465,42 @@ namespace POS_and_Inventory_System
                 return;
             }
 
+            // Check if a row is selected
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Please select an item to apply discount", "No Item Selected",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Get current row details
+            int currentRowIndex = dataGridView1.CurrentRow.Index;
+            string selectedId = dataGridView1[1, currentRowIndex].Value.ToString();
+            double unitPrice = Double.Parse(dataGridView1[4, currentRowIndex].Value.ToString());
+            int quantity = int.Parse(dataGridView1[5, currentRowIndex].Value.ToString());
+            double totalRowPrice = unitPrice * quantity;
+
             frmDiscount frm = new frmDiscount(this);
-            frm.lblID.Text = id;
-            frm.txtPrice.Text = price;
+            frm.lblID.Text = selectedId;
+            frm.txtPrice.Text = totalRowPrice.ToString(); // Pass total row price
             frm.ShowDialog();
 
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            int i = dataGridView1.CurrentRow.Index;
-            id = dataGridView1[1, i].Value.ToString();
-            price = dataGridView1[4, i].Value.ToString();
+            if (dataGridView1.CurrentRow != null)
+            {
+                int i = dataGridView1.CurrentRow.Index;
+                id = dataGridView1[1, i].Value.ToString();
+
+                // Calculate the total for this row (price × quantity)
+                double unitPrice = Double.Parse(dataGridView1[4, i].Value.ToString());
+                int quantity = int.Parse(dataGridView1[5, i].Value.ToString());
+                double totalPrice = unitPrice * quantity;
+
+                price = totalPrice.ToString(); // Pass the total price, not unit price
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
