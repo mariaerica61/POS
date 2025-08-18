@@ -432,6 +432,12 @@
   <ItemGroup>
     <None Include="Resources\error.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\555 Sardines %28155g%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no_image.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

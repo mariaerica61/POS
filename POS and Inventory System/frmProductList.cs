@@ -45,8 +45,9 @@ namespace POS_and_Inventory_System
             {
                 cn.Open();
 
+                // Enhanced query with multiple ordering criteria to ensure newest products appear first
                 string searchQuery = @"
-            SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.reorder, p.image 
+            SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.reorder, p.image, p.date_created
             FROM tblProduct p 
             INNER JOIN tblBrand b ON b.id = p.bid 
             INNER JOIN tblCategory c ON c.id = p.cid 
@@ -54,7 +55,7 @@ namespace POS_and_Inventory_System
                OR ISNULL(p.pdesc, '') LIKE @searchTerm 
                OR ISNULL(b.brand, '') LIKE @searchTerm 
                OR ISNULL(c.category, '') LIKE @searchTerm
-            ORDER BY p.pcode DESC";
+            ORDER BY p.date_created DESC, p.pcode DESC";
 
                 cm = new SqlCommand(searchQuery, cn);
                 cm.Parameters.AddWithValue("@searchTerm", "%" + txtSearch.Text + "%");

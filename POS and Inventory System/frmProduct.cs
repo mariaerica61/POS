@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
+using System.Data;
 
 
 
@@ -39,40 +40,58 @@ namespace POS_and_Inventory_System
 
         public void LoadCategory()
         {
-            cboCategory.Items.Clear();
-            List<string> categories = new List<string>();
-
-            cn.Open();
-            cm = new SqlCommand("SELECT category FROM tblCategory", cn);
-            dr = cm.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                categories.Add(dr[0].ToString());
-            }
-            dr.Close();
-            cn.Close();
+                DataTable dt = new DataTable();
+                cn.Open();
 
-            categories.Sort();
-            cboCategory.Items.AddRange(categories.ToArray());
+                // Using your exact database schema
+                cm = new SqlCommand("SELECT id, category FROM tblCategory ORDER BY category", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm);
+                da.Fill(dt);
+
+                cboCategory.DataSource = dt;
+                cboCategory.DisplayMember = "category";
+                cboCategory.ValueMember = "id";
+                cboCategory.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error loading categories", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (cn.State == ConnectionState.Open)
+                    cn.Close();
+            }
         }
 
         public void LoadBrand()
         {
-            cboBrand.Items.Clear();
-            List<string> brands = new List<string>();
-
-            cn.Open();
-            cm = new SqlCommand("SELECT brand FROM tblBrand", cn);
-            dr = cm.ExecuteReader();
-            while (dr.Read())
+            try
             {
-                brands.Add(dr[0].ToString());
-            }
-            dr.Close();
-            cn.Close();
+                DataTable dt = new DataTable();
+                cn.Open();
 
-            brands.Sort();
-            cboBrand.Items.AddRange(brands.ToArray());
+                // Using your exact database schema
+                cm = new SqlCommand("SELECT id, brand FROM tblBrand ORDER BY brand", cn);
+                SqlDataAdapter da = new SqlDataAdapter(cm);
+                da.Fill(dt);
+
+                cboBrand.DataSource = dt;
+                cboBrand.DisplayMember = "brand";
+                cboBrand.ValueMember = "id";
+                cboBrand.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error loading brands", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (cn.State == ConnectionState.Open)
+                    cn.Close();
+            }
 
         }
 
@@ -100,16 +119,22 @@ namespace POS_and_Inventory_System
 
                 if (PictureBox2.Image != null)
                 {
-                    using (MemoryStream ms = new MemoryStream())
+                    // Create a new bitmap to avoid GDI+ errors
+                    using (Bitmap bmp = new Bitmap(PictureBox2.Image))
                     {
-                        PictureBox2.Image.Save(ms, PictureBox2.Image.RawFormat);
-                        imgData = ms.ToArray();
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            // Save as PNG to avoid format issues
+                            bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                            imgData = ms.ToArray();
+                        }
                     }
                 }
 
                 cn.Open();
-                string query = "INSERT INTO tblProduct (pcode, barcode, pdesc, bid, cid, price, reorder, image) " +
-                               "VALUES (@pcode, @barcode, @pdesc, @bid, @cid, @price, @reorder, @image)";
+                // Updated query to include date_created with GETDATE()
+                string query = "INSERT INTO tblProduct (pcode, barcode, pdesc, bid, cid, price, reorder, image, date_created) " +
+                               "VALUES (@pcode, @barcode, @pdesc, @bid, @cid, @price, @reorder, @image, GETDATE())";
 
                 cm = new SqlCommand(query, cn);
                 cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
@@ -157,45 +182,81 @@ namespace POS_and_Inventory_System
         {
             try
             {
+                // Validation
+                if (string.IsNullOrEmpty(txtPcode.Text))
+                {
+                    MessageBox.Show("Product code is required.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 byte[] imgData = null;
 
                 if (PictureBox2.Image != null)
                 {
-                    using (MemoryStream ms = new MemoryStream())
+                    // Create a new bitmap to avoid GDI+ errors
+                    using (Bitmap bmp = new Bitmap(PictureBox2.Image))
                     {
-                        PictureBox2.Image.Save(ms, PictureBox2.Image.RawFormat);
-                        imgData = ms.ToArray();
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            // Save as PNG to avoid format issues
+                            bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                            imgData = ms.ToArray();
+                        }
                     }
                 }
 
+                // Ensure connection is closed before opening
+                if (cn.State == ConnectionState.Open)
+                    cn.Close();
+
                 cn.Open();
+
+                // Debug: Check if product exists
+                string checkQuery = "SELECT COUNT(*) FROM tblProduct WHERE pcode=@pcode";
+                using (SqlCommand checkCmd = new SqlCommand(checkQuery, cn))
+                {
+                    checkCmd.Parameters.AddWithValue("@pcode", txtPcode.Text);
+                    int count = (int)checkCmd.ExecuteScalar();
+                    if (count == 0)
+                    {
+                        MessageBox.Show("Product not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
                 string query = "UPDATE tblProduct SET barcode=@barcode, pdesc=@pdesc, bid=@bid, cid=@cid, " +
                                "price=@price, reorder=@reorder, image=@image WHERE pcode=@pcode";
 
                 cm = new SqlCommand(query, cn);
-                cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
-                cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text);
-                cm.Parameters.AddWithValue("@bid", cboBrand.SelectedValue);
-                cm.Parameters.AddWithValue("@cid", cboCategory.SelectedValue);
-                cm.Parameters.AddWithValue("@price", Convert.ToDouble(txtPrice.Text));
-                cm.Parameters.AddWithValue("@reorder", Convert.ToInt32(txtReorder.Text));
+                cm.Parameters.AddWithValue("@barcode", txtBarcode.Text ?? "");
+                cm.Parameters.AddWithValue("@pdesc", txtPdesc.Text ?? "");
+                cm.Parameters.AddWithValue("@bid", cboBrand.SelectedValue ?? DBNull.Value);
+                cm.Parameters.AddWithValue("@cid", cboCategory.SelectedValue ?? DBNull.Value);
+                cm.Parameters.AddWithValue("@price", string.IsNullOrEmpty(txtPrice.Text) ? 0 : Convert.ToDouble(txtPrice.Text));
+                cm.Parameters.AddWithValue("@reorder", string.IsNullOrEmpty(txtReorder.Text) ? 0 : Convert.ToInt32(txtReorder.Text));
                 cm.Parameters.AddWithValue("@image", (object)imgData ?? DBNull.Value);
                 cm.Parameters.AddWithValue("@pcode", txtPcode.Text);
 
-                cm.ExecuteNonQuery();
+                int rowsAffected = cm.ExecuteNonQuery();
 
-                MessageBox.Show("Product has been successfully updated.", "Update Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                flist.LoadProduct(); // Refresh the product list
-                this.Dispose();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Product has been successfully updated.", "Update Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    flist.LoadProduct(); // Refresh the product list
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("No changes were made to the product.", "Update Record", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error updating product: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
-                if (cn.State == System.Data.ConnectionState.Open)
+                if (cn.State == ConnectionState.Open)
                     cn.Close();
             }
         }
@@ -269,6 +330,20 @@ namespace POS_and_Inventory_System
         private void cboCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void DebugProductData()
+        {
+            string debugMessage = $"Product Code: {txtPcode.Text}\n" +
+                                 $"Barcode: {txtBarcode.Text}\n" +
+                                 $"Description: {txtPdesc.Text}\n" +
+                                 $"Brand Selected: {cboBrand.SelectedValue} ({cboBrand.Text})\n" +
+                                 $"Category Selected: {cboCategory.SelectedValue} ({cboCategory.Text})\n" +
+                                 $"Price: {txtPrice.Text}\n" +
+                                 $"Reorder: {txtReorder.Text}\n" +
+                                 $"Has Image: {(PictureBox2.Image != null ? "Yes" : "No")}";
+
+            MessageBox.Show(debugMessage, "Debug Product Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

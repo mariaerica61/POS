@@ -12,6 +12,7 @@ using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using Tulpep.NotificationWindow;
+using System.IO;
 
 namespace POS_and_Inventory_System
 {
@@ -27,6 +28,12 @@ namespace POS_and_Inventory_System
         string stitle = "POS and Inventory System";
         int qty;
         frmSecurity f;
+
+        private Button btnCategory;
+        private string _filter = "";
+        private PictureBox pic;
+        private Label lblDesc;
+        private Label lblPrice;
 
 
 
@@ -91,7 +98,8 @@ namespace POS_and_Inventory_System
 
         private void frmPOS_Load(object sender, EventArgs e)
         {
-
+            LoadCategory();
+            AddAllCategoryButton();
         }
 
         // Generates a unique transaction number based on the current date
@@ -107,17 +115,22 @@ namespace POS_and_Inventory_System
                 cm = new SqlCommand("SELECT top 1 transno from tblCart WHERE transno like '" + sdate + "%' order by id desc", cn);
                 dr = cm.ExecuteReader();
                 dr.Read();
-                if (dr.HasRows) { 
+                if (dr.HasRows)
+                {
                     transno = dr[0].ToString();
                     count = int.Parse(transno.Substring(8, 4));
                     lblTransno.Text = sdate + (count + 1);
-                } else { 
+                }
+                else
+                {
                     transno = sdate + "1001";
                     lblTransno.Text = transno;
-                }dr.Close();
+                }
+                dr.Close();
                 cn.Close();
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 cn.Close();
                 MessageBox.Show(ex.Message, stitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -129,17 +142,48 @@ namespace POS_and_Inventory_System
         {
             if (dataGridView1.Rows.Count > 0)
             {
+                MessageBox.Show("Please complete or clear the current transaction first.",
+                               "Pending Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            // Generate new transaction number
             GetTransNo();
+
+            // Enable controls for transaction
             txtSearch.Enabled = true;
             txtSearch.Focus();
-        }
+            txtSearch.Clear();
+
+            // Load all products when starting new transaction
+            _filter = "";
+            LoadMenu();
+
+            // Highlight the "ALL" button
+            foreach (Control control in flowLayoutPanel1.Controls)
+            {
+                if (control is Button btn)
+                {
+                    if (btn.Text == "ALL")
+                    {
+                        btn.BackColor = Color.FromArgb(30, 136, 229);
+                    }
+                    else
+                    {
+                        btn.BackColor = Color.FromArgb(75, 207, 250);
+                    }
+                }
+            }
+
+            // Show confirmation message
+            MessageBox.Show("New transaction started!\nTransaction No: " + lblTransno.Text,
+                           "New Transaction", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        
+    }
 
         private void txtSearch_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         // Searches for products by barcode
@@ -148,34 +192,42 @@ namespace POS_and_Inventory_System
             try
             {
                 if (txtSearch.Text == string.Empty) { return; }
+
+                // Check if a new transaction has been started
+                if (string.IsNullOrEmpty(lblTransno.Text) || lblTransno.Text == "00000000000000")
+                {
+                    MessageBox.Show("Please start a new transaction first by clicking the NEW TRANSACTION button (F1)",
+                                   "No Active Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtSearch.Clear();
+                    return;
+                }
+
+                String _pcode;
+                double _price;
+                int availableQty;
+
+                cn.Open();
+                cm = new SqlCommand("SELECT * FROM tblProduct WHERE barcode like '" + txtSearch.Text + "'", cn);
+                dr = cm.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    availableQty = int.Parse(dr["qty"].ToString());
+                    _pcode = dr["pcode"].ToString();
+                    _price = double.Parse(dr["price"].ToString());
+
+                    dr.Close();
+                    cn.Close();
+
+                    // Open frmQty for barcode scanning as well for consistency
+                    frmQty frm = new frmQty(this);
+                    frm.ProductDetails(_pcode, _price, lblTransno.Text, availableQty);
+                    frm.ShowDialog();
+                }
                 else
                 {
-                      String _pcode;
-                      double _price;
-                      int _qty;
-                    
-                    cn.Open();
-                    cm = new SqlCommand("SELECT * FROM tblProduct WHERE barcode like '" + txtSearch.Text + "'", cn);
-                    dr = cm.ExecuteReader();
-                    dr.Read();
-                    if (dr.HasRows)
-                    {
-                        qty = int.Parse(dr["qty"].ToString());
-                        _pcode = dr["pcode"].ToString();
-                        _price = double.Parse(dr["price"].ToString());
-                        _qty = int.Parse(txtQty.Text);
-
-                        dr.Close();
-                        cn.Close();
-
-                        AddToCart(_pcode,_price,_qty);
-                    }
-
-                    else
-                    {
-                        dr.Close();
-                        cn.Close();
-                    }
+                    dr.Close();
+                    cn.Close();
                 }
             }
             catch (Exception ex)
@@ -210,12 +262,7 @@ namespace POS_and_Inventory_System
 
             if (found == true)
             {
-                if (qty < (int.Parse(txtQty.Text) + cart_qty))
-                {
-                    MessageBox.Show("Unable to proceed. Remaining quantity on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
+                // Update existing cart item
                 cn.Open();
                 cm = new SqlCommand("update tblCart set qty = (qty + " + _qty + ") where id = '" + id + "'", cn);
                 cm.ExecuteNonQuery();
@@ -227,13 +274,6 @@ namespace POS_and_Inventory_System
             }
             else
             {
-                // Check if there's enough stock to add more of this product
-                if (qty < int.Parse(txtQty.Text))
-                {
-                    MessageBox.Show("Unable to proceed. Remaining quantity on hand is " + qty, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
                 // Insert new item into the cart
                 cn.Open();
                 cm = new SqlCommand("INSERT INTO tblCart (transno, pcode, price, qty, sdate, cashier) VALUES (@transno, @pcode, @price, @qty, @sdate, @cashier)", cn);
@@ -333,7 +373,7 @@ namespace POS_and_Inventory_System
                     i++;
                     total += Double.Parse(dr["total"].ToString());
                     discount += Double.Parse(dr["disc"].ToString());
-                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"),"ADD MORE", "REMOVE");
+                    dataGridView1.Rows.Add(i, dr["id"].ToString(), dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["price"].ToString(), dr["qty"].ToString(), dr["disc"].ToString(), Double.Parse(dr["total"].ToString()).ToString("#,##0.00"), "ADD MORE", "REMOVE");
                     hasrecord = true;
                 }
                 dr.Close();
@@ -341,8 +381,11 @@ namespace POS_and_Inventory_System
                 lblTotal.Text = total.ToString("#,##0.00");
                 lblDiscount.Text = discount.ToString("#,##0.00");
                 GetCartTotal();
-                if (hasrecord == true) { btnSettle.Enabled = true; btnDiscount.Enabled = true; btnClear.Enabled = true; 
-                } else { btnSettle.Enabled = false; btnDiscount.Enabled = false; btnClear.Enabled = false; }
+                if (hasrecord == true)
+                {
+                    btnSettle.Enabled = true; btnDiscount.Enabled = true; btnClear.Enabled = true;
+                }
+                else { btnSettle.Enabled = false; btnDiscount.Enabled = false; btnClear.Enabled = false; }
             }
             catch (Exception ex)
             {
@@ -365,7 +408,13 @@ namespace POS_and_Inventory_System
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (lblTransno.Text == "00000000000000") { return; }
+            if (string.IsNullOrEmpty(lblTransno.Text) || lblTransno.Text == "00000000000000")
+            {
+                MessageBox.Show("Please start a new transaction first by clicking the NEW TRANSACTION button (F1)",
+                               "No Active Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             frmLookUp frm = new frmLookUp(this);
             frm.LoadProduct();
             frm.ShowDialog();
@@ -376,11 +425,26 @@ namespace POS_and_Inventory_System
 
         private void btnDiscount_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(lblTransno.Text) || lblTransno.Text == "00000000000000")
+            {
+                MessageBox.Show("Please start a new transaction first by clicking the NEW TRANSACTION button (F1)",
+                               "No Active Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Check if there are items in the cart
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("No items in cart to apply discount", "Empty Cart",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             frmDiscount frm = new frmDiscount(this);
             frm.lblID.Text = id;
             frm.txtPrice.Text = price;
             frm.ShowDialog();
-            
+
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -398,6 +462,21 @@ namespace POS_and_Inventory_System
 
         private void btnSettle_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(lblTransno.Text) || lblTransno.Text == "00000000000000")
+            {
+                MessageBox.Show("Please start a new transaction first by clicking the NEW TRANSACTION button (F1)",
+                               "No Active Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Check if there are items in the cart
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("No items in cart to settle", "Empty Cart",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             frmSettlePayment frm = new frmSettlePayment(this);
             frm.txtSale.Text = lblDisplayTotal.Text;
             frm.ShowDialog();
@@ -449,8 +528,8 @@ namespace POS_and_Inventory_System
 
         private void frmPOS_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F1) 
-            { 
+            if (e.KeyCode == Keys.F1)
+            {
                 btnNew_Click(sender, e);
             }
             else if (e.KeyCode == Keys.F2)
@@ -465,7 +544,7 @@ namespace POS_and_Inventory_System
             {
                 btnSettle_Click(sender, e);
             }
-           
+
             else if (e.KeyCode == Keys.F6)
             {
                 btnDaily_Click(sender, e);
@@ -485,18 +564,33 @@ namespace POS_and_Inventory_System
 
         private void txtQty_TextChanged(object sender, EventArgs e)
         {
-          
+
         }
 
         private void btnChangePass_Click(object sender, EventArgs e)
         {
-            frmChangePassword frm = new frmChangePassword(this);    
+            frmChangePassword frm = new frmChangePassword(this);
             frm.ShowDialog();
 
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(lblTransno.Text) || lblTransno.Text == "00000000000000")
+            {
+                MessageBox.Show("Please start a new transaction first by clicking the NEW TRANSACTION button (F1)",
+                               "No Active Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Check if there are items in the cart
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("No items in cart to clear", "Empty Cart",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (MessageBox.Show("Remove all items from cart?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 cn.Open();
@@ -508,5 +602,330 @@ namespace POS_and_Inventory_System
                 LoadCart();
             }
         }
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LoadCategory()
+        {
+            try
+            {
+                // Clear existing controls in flowLayoutPanel1
+                flowLayoutPanel1.Controls.Clear();
+
+                cn.Open();
+                cm = new SqlCommand("SELECT * FROM tblCategory ORDER BY category", cn);
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    btnCategory = new Button();
+                    btnCategory.Width = 100;
+                    btnCategory.Height = 35;
+                    btnCategory.Text = dr["category"].ToString();
+                    btnCategory.FlatStyle = FlatStyle.Flat;
+                    btnCategory.BackColor = Color.FromArgb(75, 207, 250);
+                    btnCategory.ForeColor = Color.White;
+                    btnCategory.Cursor = Cursors.Hand;
+                    btnCategory.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+                    btnCategory.Tag = dr["id"].ToString(); // Store the ID for future use
+
+                    // Add button to flowLayoutPanel1
+                    flowLayoutPanel1.Controls.Add(btnCategory);
+
+                    // Add event handler for click event
+                    btnCategory.Click += Filter_Click;
+                }
+
+                dr.Close();
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+                if (cn.State == System.Data.ConnectionState.Open)
+                    cn.Close();
+                MessageBox.Show(ex.Message, stitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Filter_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(lblTransno.Text) || lblTransno.Text == "00000000000000")
+            {
+                MessageBox.Show("Please start a new transaction first by clicking the NEW TRANSACTION button (F1)",
+                               "No Active Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Button clickedButton = sender as Button;
+            _filter = clickedButton.Text;
+
+            // Reset all category buttons to default color
+            foreach (Control control in flowLayoutPanel1.Controls)
+            {
+                if (control is Button btn)
+                {
+                    btn.BackColor = Color.FromArgb(75, 207, 250);
+                }
+            }
+
+            // Highlight the selected category button
+            clickedButton.BackColor = Color.FromArgb(30, 136, 229);
+
+            // Load products for selected category
+            LoadMenu();
+        }
+
+        private void AddAllCategoryButton()
+        {
+            Button btnAll = new Button();
+            btnAll.Width = 100;
+            btnAll.Height = 35;
+            btnAll.Text = "ALL";
+            btnAll.FlatStyle = FlatStyle.Flat;
+            btnAll.BackColor = Color.FromArgb(30, 136, 229); // Default selected color
+            btnAll.ForeColor = Color.White;
+            btnAll.Cursor = Cursors.Hand;
+            btnAll.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnAll.Tag = "0"; // Special tag for all categories
+
+            // Insert at the beginning of flowLayoutPanel1
+            flowLayoutPanel1.Controls.Add(btnAll);
+            flowLayoutPanel1.Controls.SetChildIndex(btnAll, 0);
+
+            // Add event handler for click event
+            btnAll.Click += FilterAll_Click;
+        }
+
+        // Event handler for "ALL" category button
+        private void FilterAll_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(lblTransno.Text) || lblTransno.Text == "00000000000000")
+            {
+                MessageBox.Show("Please start a new transaction first by clicking the NEW TRANSACTION button (F1)",
+                               "No Active Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Button clickedButton = sender as Button;
+            _filter = ""; // Empty filter shows all products
+
+            // Reset all category buttons to default color
+            foreach (Control control in flowLayoutPanel1.Controls)
+            {
+                if (control is Button btn)
+                {
+                    btn.BackColor = Color.FromArgb(75, 207, 250);
+                }
+            }
+
+            // Highlight the "ALL" button
+            clickedButton.BackColor = Color.FromArgb(30, 136, 229);
+
+            // Load all products
+            LoadMenu();
+        }
+
+        private void LoadMenu()
+        {
+            try
+            {
+                // Clear existing controls in flowLayoutPanel2 (assuming this is where products are displayed)
+                flowLayoutPanel2.Controls.Clear();
+
+                // Enable auto scroll for the product panel
+                flowLayoutPanel2.AutoScroll = true;
+
+                string query = "SELECT pcode, pdesc, price, cid, image FROM tblProduct WHERE qty > 0"; // Only show items in stock
+
+                // Add category filter if one is selected
+                if (!string.IsNullOrEmpty(_filter))
+                {
+                    // Assuming cid is the category ID, you might need to join with category table
+                    // For now, I'll use a direct category name comparison - adjust as needed
+                    query += " AND cid IN (SELECT id FROM tblCategory WHERE category LIKE @category)";
+                }
+
+                query += " ORDER BY pdesc";
+
+                cn.Open();
+                cm = new SqlCommand(query, cn);
+
+                if (!string.IsNullOrEmpty(_filter))
+                {
+                    cm.Parameters.AddWithValue("@category", "%" + _filter + "%");
+                }
+
+                dr = cm.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    // Create main container panel for each product
+                    Panel productPanel = new Panel();
+                    productPanel.Width = 150;
+                    productPanel.Height = 180;
+                    productPanel.BorderStyle = BorderStyle.FixedSingle;
+                    productPanel.BackColor = Color.White;
+                    productPanel.Cursor = Cursors.Hand;
+                    productPanel.Tag = dr["pcode"].ToString();
+
+                    // Create picture box with actual product image
+                    pic = new PictureBox();
+                    pic.Width = 148;
+                    pic.Height = 120;
+                    pic.BackColor = Color.FromArgb(240, 240, 240);
+                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pic.Dock = DockStyle.Top;
+                    pic.Tag = dr["pcode"].ToString();
+                    pic.Cursor = Cursors.Hand;
+
+                    // Load image from database
+                    try
+                    {
+                        if (dr["image"] != DBNull.Value)
+                        {
+                            byte[] imageData = (byte[])dr["image"];
+                            if (imageData != null && imageData.Length > 0)
+                            {
+                                using (MemoryStream ms = new MemoryStream(imageData))
+                                {
+                                    pic.Image = Image.FromStream(ms).GetThumbnailImage(148, 120, null, IntPtr.Zero);
+                                }
+                            }
+                            else
+                            {
+                                // No image data, use placeholder
+                                pic.BackColor = Color.LightGray;
+                                pic.SizeMode = PictureBoxSizeMode.CenterImage;
+                            }
+                        }
+                        else
+                        {
+                            // No image, use placeholder
+                            pic.BackColor = Color.LightGray;
+                            pic.SizeMode = PictureBoxSizeMode.CenterImage;
+                        }
+                    }
+                    catch
+                    {
+                        // Error loading image, use placeholder
+                        pic.BackColor = Color.LightGray;
+                        pic.SizeMode = PictureBoxSizeMode.CenterImage;
+                    }
+
+                    // Create description label
+                    lblDesc = new Label();
+                    lblDesc.BackColor = Color.FromArgb(34, 112, 147);
+                    lblDesc.ForeColor = Color.White;
+                    lblDesc.Text = dr["pdesc"].ToString();
+                    lblDesc.Font = new Font("Segoe UI", 8, FontStyle.Regular);
+                    lblDesc.TextAlign = ContentAlignment.MiddleCenter;
+                    lblDesc.Height = 30;
+                    lblDesc.Dock = DockStyle.Top;
+                    lblDesc.Tag = dr["pcode"].ToString();
+                    lblDesc.Cursor = Cursors.Hand;
+
+                    // Create price label
+                    lblPrice = new Label();
+                    lblPrice.BackColor = Color.FromArgb(34, 112, 147);
+                    lblPrice.ForeColor = Color.White;
+                    lblPrice.Text = "₱" + double.Parse(dr["price"].ToString()).ToString("#,##0.00");
+                    lblPrice.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                    lblPrice.TextAlign = ContentAlignment.MiddleCenter;
+                    lblPrice.Height = 30;
+                    lblPrice.Dock = DockStyle.Top;
+                    lblPrice.Tag = dr["pcode"].ToString();
+                    lblPrice.Cursor = Cursors.Hand;
+
+                    // Add controls to the product panel
+                    productPanel.Controls.Add(lblPrice);
+                    productPanel.Controls.Add(lblDesc);
+                    productPanel.Controls.Add(pic);
+
+                    // Add the product panel to flowLayoutPanel2
+                    flowLayoutPanel2.Controls.Add(productPanel);
+
+                    // Add event handlers for click events
+                    productPanel.Click += ProductSelect_Click;
+                    pic.Click += ProductSelect_Click;
+                    lblDesc.Click += ProductSelect_Click;
+                    lblPrice.Click += ProductSelect_Click;
+                }
+
+                dr.Close();
+                cn.Close();
+            }
+            catch (Exception ex)
+            {
+                if (cn.State == System.Data.ConnectionState.Open)
+                    cn.Close();
+                MessageBox.Show(ex.Message, stitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ProductSelect_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Check if a new transaction has been started
+                if (string.IsNullOrEmpty(lblTransno.Text) || lblTransno.Text == "00000000000000")
+                {
+                    MessageBox.Show("Please start a new transaction first by clicking the NEW TRANSACTION button (F1)",
+                                   "No Active Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                Control clickedControl = sender as Control;
+                string pcode = clickedControl.Tag.ToString();
+
+                // Get product details from database
+                string pdesc = "";
+                double price = 0;
+                int availableQty = 0;
+
+                cn.Open();
+                cm = new SqlCommand("SELECT pdesc, price, qty FROM tblProduct WHERE pcode = @pcode", cn);
+                cm.Parameters.AddWithValue("@pcode", pcode);
+                dr = cm.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    pdesc = dr["pdesc"].ToString();
+                    price = double.Parse(dr["price"].ToString());
+                    availableQty = int.Parse(dr["qty"].ToString());
+                }
+
+                dr.Close();
+                cn.Close();
+
+                // Check if item is in stock
+                if (availableQty <= 0)
+                {
+                    MessageBox.Show("Item is out of stock!", "Out of Stock",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Open frmQty dialog similar to frmLookUp flow
+                frmQty frm = new frmQty(this);
+                frm.ProductDetails(pcode, price, lblTransno.Text, availableQty);
+                frm.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                if (cn.State == System.Data.ConnectionState.Open)
+                    cn.Close();
+                MessageBox.Show(ex.Message, stitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
