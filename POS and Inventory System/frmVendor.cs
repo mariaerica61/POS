@@ -135,6 +135,11 @@ namespace POS_and_Inventory_System
         {
 
         }
+
+        private void txtPerson_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

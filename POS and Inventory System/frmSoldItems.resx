@@ -150,19 +150,19 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="colCancel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEHSURBVDhPpVNL
-        bsIwEDWbXiZNM7lYM74BFwABBbH00GU3cAG4BL8dhwC6A4FeCNSdOIloLT3FGr8347zxGKPW+9vnKyeT
-        AZNsmOQbsCRrm0jfJhJp/mO1o6+XLJExk5yZ5FKBc0ZuBG5ZTLIICIIA91eSonKJWAfcJBfb2MX+tS3J
-        jsnNtACx29kjdso9KQzzyVNjLq2MpPtTTbqI4cznwlhcf6ur3QX4+nvNQ3cMkxz1gZ+kSlzg8N8EeyTA
-        gwmKm36BSVYGRqhgbiKnrqMTahOZXA8JIrTkHny6jflDIjcqC+phU/n481PmdDIPzgOTDBuG6YTKJbG/
-        bp64HhwuWgwsEQuN8xVKt8bMs4KuOAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAABEUlEQVQ4T6VSzU7CQBDeizyM9UanHnlB/sR4cGdDOPsKwpGETvEEnImPIJooS82a2ZRmmbb+4CRf
+        spmZb/72U0pYZuIrMjAkhDUhvBVYs49jMr+0zUPUIgN3hPBJCK4BeaqTW86tkhFmNYQmTE+KFJ1l0rfI
+        MB55st8ZIQ+Dy0mnQqjx5aQhUoRwEwaeJh23/3h323mv9PGbfbJIqpO+Ig0b2W077zprrXtejE7eMo8Q
+        VirF5LUm4Ltau/cIpxHY8Qq7msDvCmh4+f8KhDAInX85IiF0eYLo3G9cjK8vvRZYnpLwIwwMpZSnlaRm
+        PC7v2xdlgWMRlqdcR+DAnSvk0PgmrDC+MGuk0MkqM3Gv3DmwLw+OSCMqievdAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnPrint.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADOSURBVDhPrZNN
+        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADOSURBVDhPrZNN
         DgFBEIUn9jNzAAuHcAYHsGQn4QzCCVyBFXviAK4gcQKnsCPmkxfd0lPazwwveUnnVfXXi65KkkDACBh/
         8DC88xCQcdcCmL+walJm7wuQu2LD1rxUcz25rdUHAFNgDxxcUed3ltSr80SAiwvr6CzAt9KrHaALXH1Y
         BXAC1sAuDKsAovoLoDCZvqoJtI2V+W/0KgTYmlBNK+BovIwANn4WUqAVAPrAzLgXANSbBjNWnkRgEAEo

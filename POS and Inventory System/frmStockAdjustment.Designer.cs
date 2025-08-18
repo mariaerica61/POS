@@ -70,33 +70,33 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rasputin", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label1.Location = new System.Drawing.Point(37, 12);
+            this.label1.Font = new System.Drawing.Font("Agrandir Grand Heavy", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label1.Location = new System.Drawing.Point(27, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(337, 34);
+            this.label1.Size = new System.Drawing.Size(411, 36);
             this.label1.TabIndex = 14;
             this.label1.Text = "STOCK ADJUSTMENT";
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Rasputin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(862, 12);
+            this.button2.Location = new System.Drawing.Point(1008, 21);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(35, 35);
             this.button2.TabIndex = 13;
             this.button2.Text = "X";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(132)))), ((int)(((byte)(130)))));
             this.panel1.Controls.Add(this.cboCommand);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.txtRemarks);
@@ -113,9 +113,9 @@
             this.panel1.Controls.Add(this.txtPcode);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 364);
+            this.panel1.Location = new System.Drawing.Point(0, 558);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(909, 174);
+            this.panel1.Size = new System.Drawing.Size(1078, 174);
             this.panel1.TabIndex = 15;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -127,67 +127,67 @@
             this.cboCommand.Items.AddRange(new object[] {
             "REMOVE FROM INVENTORY",
             "ADD TO INVENTORY"});
-            this.cboCommand.Location = new System.Drawing.Point(594, 19);
+            this.cboCommand.Location = new System.Drawing.Point(621, 19);
             this.cboCommand.Name = "cboCommand";
-            this.cboCommand.Size = new System.Drawing.Size(276, 29);
+            this.cboCommand.Size = new System.Drawing.Size(290, 29);
             this.cboCommand.TabIndex = 93;
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Rasputin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(772, 132);
+            this.btnSave.Location = new System.Drawing.Point(945, 116);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(98, 30);
             this.btnSave.TabIndex = 92;
             this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtRemarks
             // 
             this.txtRemarks.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRemarks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtRemarks.Location = new System.Drawing.Point(594, 55);
+            this.txtRemarks.Location = new System.Drawing.Point(621, 55);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
-            this.txtRemarks.Size = new System.Drawing.Size(276, 29);
+            this.txtRemarks.Size = new System.Drawing.Size(290, 35);
             this.txtRemarks.TabIndex = 91;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(465, 55);
+            this.label5.Location = new System.Drawing.Point(492, 55);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 25);
+            this.label5.Size = new System.Drawing.Size(92, 22);
             this.label5.TabIndex = 90;
             this.label5.Text = "REMARKS";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(465, 19);
+            this.label4.Location = new System.Drawing.Point(492, 19);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 25);
+            this.label4.Size = new System.Drawing.Size(115, 22);
             this.label4.TabIndex = 88;
             this.label4.Text = "COMMANDS";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(465, 92);
+            this.label3.Location = new System.Drawing.Point(492, 92);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 25);
+            this.label3.Size = new System.Drawing.Size(53, 22);
             this.label3.TabIndex = 88;
             this.label3.Text = "USER";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -195,11 +195,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(38, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 25);
+            this.label2.Size = new System.Drawing.Size(125, 22);
             this.label2.TabIndex = 87;
             this.label2.Text = "DESCRIPTION";
             // 
@@ -220,10 +220,10 @@
             this.txtUser.Enabled = false;
             this.txtUser.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtUser.Location = new System.Drawing.Point(594, 92);
+            this.txtUser.Location = new System.Drawing.Point(621, 92);
             this.txtUser.Multiline = true;
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(276, 29);
+            this.txtUser.Size = new System.Drawing.Size(290, 35);
             this.txtUser.TabIndex = 89;
             // 
             // txtDesc
@@ -241,11 +241,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(38, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(141, 25);
+            this.label6.Size = new System.Drawing.Size(140, 22);
             this.label6.TabIndex = 80;
             this.label6.Text = "REFERENCE NO.";
             // 
@@ -263,11 +263,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(38, 52);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 25);
+            this.label7.Size = new System.Drawing.Size(68, 22);
             this.label7.TabIndex = 81;
             this.label7.Text = "PCODE";
             // 
@@ -286,20 +286,20 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(38, 121);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 25);
+            this.label8.Size = new System.Drawing.Size(45, 22);
             this.label8.TabIndex = 82;
             this.label8.Text = "QTY";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.txtSearch);
-            this.panel2.Location = new System.Drawing.Point(478, 8);
+            this.panel2.Location = new System.Drawing.Point(30, 69);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(365, 43);
+            this.panel2.Size = new System.Drawing.Size(473, 43);
             this.panel2.TabIndex = 16;
             // 
             // txtSearch
@@ -308,7 +308,7 @@
             // 
             // 
             this.txtSearch.CustomButton.Image = null;
-            this.txtSearch.CustomButton.Location = new System.Drawing.Point(325, 1);
+            this.txtSearch.CustomButton.Location = new System.Drawing.Point(433, 1);
             this.txtSearch.CustomButton.Name = "";
             this.txtSearch.CustomButton.Size = new System.Drawing.Size(33, 33);
             this.txtSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -329,7 +329,7 @@
             this.txtSearch.SelectionLength = 0;
             this.txtSearch.SelectionStart = 0;
             this.txtSearch.ShortcutsEnabled = true;
-            this.txtSearch.Size = new System.Drawing.Size(359, 35);
+            this.txtSearch.Size = new System.Drawing.Size(467, 35);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.UseSelectable = true;
             this.txtSearch.WaterMark = "Search Product";
@@ -345,10 +345,10 @@
             this.dataGridView3.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Agrandir Grand Heavy", 12F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(132)))), ((int)(((byte)(130)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -367,18 +367,20 @@
             this.dataGridView3.Cursor = System.Windows.Forms.Cursors.No;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Palatino Linotype", 14.25F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView3.EnableHeadersVisualStyles = false;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 57);
+            this.dataGridView3.Location = new System.Drawing.Point(30, 130);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(238)))), ((int)(((byte)(236)))));
+            this.dataGridView3.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(909, 308);
+            this.dataGridView3.Size = new System.Drawing.Size(1013, 428);
             this.dataGridView3.TabIndex = 17;
             this.dataGridView3.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
             // 
@@ -394,42 +396,41 @@
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column2.HeaderText = "PCODE";
             this.Column2.Name = "Column2";
-            this.Column2.Width = 90;
+            this.Column2.Width = 112;
             // 
             // Column8
             // 
             this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column8.HeaderText = "BARCODE";
             this.Column8.Name = "Column8";
-            this.Column8.Width = 110;
+            this.Column8.Width = 145;
             // 
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column4.HeaderText = "DESCRIPTION";
             this.Column4.Name = "Column4";
-            this.Column4.Width = 140;
+            this.Column4.Width = 185;
             // 
             // Column3
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column3.HeaderText = "BRAND";
             this.Column3.Name = "Column3";
-            this.Column3.Width = 89;
+            this.Column3.Width = 114;
             // 
             // Column5
             // 
             this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column5.HeaderText = "CATEGORY";
             this.Column5.Name = "Column5";
-            this.Column5.Width = 118;
+            this.Column5.Width = 155;
             // 
             // Column6
             // 
             this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column6.HeaderText = "PRICE";
             this.Column6.Name = "Column6";
-            this.Column6.Width = 81;
             // 
             // Column7
             // 
@@ -438,7 +439,7 @@
             this.Column7.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column7.HeaderText = "STOCK ON HAND";
             this.Column7.Name = "Column7";
-            this.Column7.Width = 168;
+            this.Column7.Width = 218;
             // 
             // Select
             // 
@@ -453,7 +454,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(909, 538);
+            this.ClientSize = new System.Drawing.Size(1078, 732);
             this.ControlBox = false;
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.panel2);

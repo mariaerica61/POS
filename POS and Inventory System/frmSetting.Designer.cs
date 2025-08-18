@@ -266,22 +266,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rasputin", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label1.Location = new System.Drawing.Point(102, 12);
+            this.label1.Font = new System.Drawing.Font("Agrandir Grand Heavy", 20F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label1.Location = new System.Drawing.Point(74, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 34);
+            this.label1.Size = new System.Drawing.Size(310, 36);
             this.label1.TabIndex = 16;
             this.label1.Text = "STORE SETTING";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Rasputin", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label2.Location = new System.Drawing.Point(570, 13);
+            this.label2.Font = new System.Drawing.Font("Agrandir Grand Heavy", 20F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label2.Location = new System.Drawing.Point(542, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(240, 34);
+            this.label2.Size = new System.Drawing.Size(286, 36);
             this.label2.TabIndex = 17;
             this.label2.Text = "USER SETTING";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -294,7 +294,7 @@
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(427, 471);
-            this.metroTabControl1.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroTabControl1.Style = MetroFramework.MetroColorStyle.Black;
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTabControl1.UseSelectable = true;
@@ -337,6 +337,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(419, 428);
             this.panel3.TabIndex = 26;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // txtRetype
             // 

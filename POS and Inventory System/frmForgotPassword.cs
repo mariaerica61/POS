@@ -84,6 +84,11 @@ namespace POS_and_Inventory_System
         {
 
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
    

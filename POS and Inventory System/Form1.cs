@@ -238,6 +238,11 @@ namespace POS_and_Inventory_System
             frm.Show();
         }
 
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 

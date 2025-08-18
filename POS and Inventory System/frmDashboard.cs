@@ -78,5 +78,10 @@ namespace POS_and_Inventory_System
         {
 
         }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
