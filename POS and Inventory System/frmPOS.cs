@@ -45,6 +45,7 @@ namespace POS_and_Inventory_System
             lblDate.Text = DateTime.Now.ToLongDateString();
             this.KeyPreview = true;
             f = frm;
+            lblName.Text = f._displayName;
             NotifyCriticalItems();
         }
 
@@ -669,6 +670,13 @@ namespace POS_and_Inventory_System
                 // Clear existing controls in flowLayoutPanel1
                 flowLayoutPanel1.Controls.Clear();
 
+                // FlowLayoutPanel settings for centering
+                flowLayoutPanel1.FlowDirection = FlowDirection.LeftToRight;
+                flowLayoutPanel1.WrapContents = true;
+                flowLayoutPanel1.AutoScroll = true;
+                flowLayoutPanel1.Padding = new Padding(10);
+                flowLayoutPanel1.Anchor = AnchorStyles.None;
+
                 cn.Open();
                 cm = new SqlCommand("SELECT * FROM tblCategory ORDER BY category", cn);
                 dr = cm.ExecuteReader();
@@ -681,15 +689,17 @@ namespace POS_and_Inventory_System
                     btnCategory.Text = dr["category"].ToString();
                     btnCategory.FlatStyle = FlatStyle.Flat;
                     btnCategory.BackColor = Color.FromArgb(114, 132, 130);
-                    btnCategory.ForeColor = Color.FromArgb(255, 255, 255);
+                    btnCategory.ForeColor = Color.White;
                     btnCategory.Cursor = Cursors.Hand;
                     btnCategory.Font = new Font("Palatino Linotype", 10F, FontStyle.Bold);
-                    btnCategory.Tag = dr["id"].ToString(); // Store the ID for future use
+                    btnCategory.Tag = dr["id"].ToString();
 
-                    // Add button to flowLayoutPanel1
+                    // Centering
+                    btnCategory.Anchor = AnchorStyles.None;
+                    btnCategory.Margin = new Padding(10);
+
                     flowLayoutPanel1.Controls.Add(btnCategory);
 
-                    // Add event handler for click event
                     btnCategory.Click += Filter_Click;
                 }
 
@@ -716,12 +726,15 @@ namespace POS_and_Inventory_System
             Button clickedButton = sender as Button;
             _filter = clickedButton.Text;
 
-            // Reset all category buttons to default color
+            // Reset all category buttons back to their original colors (saved in Tag)
             foreach (Control control in flowLayoutPanel1.Controls)
             {
                 if (control is Button btn)
                 {
-                    btn.BackColor = Color.FromArgb(75, 207, 250);
+                    if (btn.Tag is Color originalColor)
+                    {
+                        btn.BackColor = originalColor;
+                    }
                 }
             }
 
@@ -739,17 +752,19 @@ namespace POS_and_Inventory_System
             btnAll.Height = 49;
             btnAll.Text = "ALL";
             btnAll.FlatStyle = FlatStyle.Flat;
-            btnAll.BackColor = Color.FromArgb(47, 68, 66); // Default selected color
+            btnAll.BackColor = Color.FromArgb(47, 68, 66);
             btnAll.ForeColor = Color.White;
             btnAll.Cursor = Cursors.Hand;
             btnAll.Font = new Font("Palatino Linotype", 10F, FontStyle.Bold);
-            btnAll.Tag = "0"; // Special tag for all categories
+            btnAll.Tag = "0";
 
-            // Insert at the beginning of flowLayoutPanel1
+            // Centering
+            btnAll.Anchor = AnchorStyles.None;
+            btnAll.Margin = new Padding(10);
+
             flowLayoutPanel1.Controls.Add(btnAll);
             flowLayoutPanel1.Controls.SetChildIndex(btnAll, 0);
 
-            // Add event handler for click event
             btnAll.Click += FilterAll_Click;
         }
 
@@ -786,19 +801,19 @@ namespace POS_and_Inventory_System
         {
             try
             {
-                // Clear existing controls in flowLayoutPanel2 (assuming this is where products are displayed)
                 flowLayoutPanel2.Controls.Clear();
 
-                // Enable auto scroll for the product panel
+                // FlowLayoutPanel settings for centering
+                flowLayoutPanel2.FlowDirection = FlowDirection.LeftToRight;
+                flowLayoutPanel2.WrapContents = true;
                 flowLayoutPanel2.AutoScroll = true;
+                flowLayoutPanel2.Padding = new Padding(15);
+                flowLayoutPanel2.Anchor = AnchorStyles.None;
 
-                string query = "SELECT pcode, pdesc, price, cid, image FROM tblProduct WHERE qty > 0"; // Only show items in stock
+                string query = "SELECT pcode, pdesc, price, cid, image FROM tblProduct WHERE qty > 0";
 
-                // Add category filter if one is selected
                 if (!string.IsNullOrEmpty(_filter))
                 {
-                    // Assuming cid is the category ID, you might need to join with category table
-                    // For now, I'll use a direct category name comparison - adjust as needed
                     query += " AND cid IN (SELECT id FROM tblCategory WHERE category LIKE @category)";
                 }
 
@@ -816,26 +831,31 @@ namespace POS_and_Inventory_System
 
                 while (dr.Read())
                 {
-                    // Create main container panel for each product
+                    // Product container panel
                     Panel productPanel = new Panel();
-                    productPanel.Width = 150;
-                    productPanel.Height = 180;
+                    productPanel.Width = 160;
+                    productPanel.Height = 200;
                     productPanel.BorderStyle = BorderStyle.FixedSingle;
                     productPanel.BackColor = Color.White;
                     productPanel.Cursor = Cursors.Hand;
                     productPanel.Tag = dr["pcode"].ToString();
+                    productPanel.Margin = new Padding(15);
+                    productPanel.Anchor = AnchorStyles.None;
 
-                    // Create picture box with actual product image
+                    // Picture
                     pic = new PictureBox();
                     pic.Width = 148;
                     pic.Height = 120;
                     pic.BackColor = Color.FromArgb(240, 240, 240);
-                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pic.Dock = DockStyle.Top;
+                    pic.SizeMode = PictureBoxSizeMode.Zoom;
                     pic.Tag = dr["pcode"].ToString();
                     pic.Cursor = Cursors.Hand;
+                    pic.Anchor = AnchorStyles.None;
+                    pic.Location = new System.Drawing.Point(
+                    (productPanel.Width - pic.Width) / 2,
+                        5
+                    );
 
-                    // Load image from database
                     try
                     {
                         if (dr["image"] != DBNull.Value)
@@ -845,63 +865,56 @@ namespace POS_and_Inventory_System
                             {
                                 using (MemoryStream ms = new MemoryStream(imageData))
                                 {
-                                    pic.Image = Image.FromStream(ms).GetThumbnailImage(148, 120, null, IntPtr.Zero);
+                                    pic.Image = Image.FromStream(ms);
                                 }
                             }
                             else
                             {
-                                // No image data, use placeholder
                                 pic.BackColor = Color.LightGray;
-                                pic.SizeMode = PictureBoxSizeMode.CenterImage;
                             }
                         }
                         else
                         {
-                            // No image, use placeholder
                             pic.BackColor = Color.LightGray;
-                            pic.SizeMode = PictureBoxSizeMode.CenterImage;
                         }
                     }
                     catch
                     {
-                        // Error loading image, use placeholder
                         pic.BackColor = Color.LightGray;
-                        pic.SizeMode = PictureBoxSizeMode.CenterImage;
                     }
 
-                    // Create description label
+                    // Description label
                     lblDesc = new Label();
-                    lblDesc.BackColor = Color.FromArgb(34, 112, 147);
-                    lblDesc.ForeColor = Color.White;
                     lblDesc.Text = dr["pdesc"].ToString();
                     lblDesc.Font = new Font("Segoe UI", 8, FontStyle.Regular);
                     lblDesc.TextAlign = ContentAlignment.MiddleCenter;
+                    lblDesc.Dock = DockStyle.Bottom;
                     lblDesc.Height = 30;
-                    lblDesc.Dock = DockStyle.Top;
+                    lblDesc.BackColor = Color.FromArgb(34, 112, 147);
+                    lblDesc.ForeColor = Color.White;
                     lblDesc.Tag = dr["pcode"].ToString();
                     lblDesc.Cursor = Cursors.Hand;
 
-                    // Create price label
+                    // Price label
                     lblPrice = new Label();
-                    lblPrice.BackColor = Color.FromArgb(34, 112, 147);
-                    lblPrice.ForeColor = Color.White;
                     lblPrice.Text = "₱" + double.Parse(dr["price"].ToString()).ToString("#,##0.00");
                     lblPrice.Font = new Font("Segoe UI", 9, FontStyle.Bold);
                     lblPrice.TextAlign = ContentAlignment.MiddleCenter;
+                    lblPrice.Dock = DockStyle.Bottom;
                     lblPrice.Height = 30;
-                    lblPrice.Dock = DockStyle.Top;
+                    lblPrice.BackColor = Color.FromArgb(34, 112, 147);
+                    lblPrice.ForeColor = Color.White;
                     lblPrice.Tag = dr["pcode"].ToString();
                     lblPrice.Cursor = Cursors.Hand;
 
-                    // Add controls to the product panel
+                    // Add controls
                     productPanel.Controls.Add(lblPrice);
                     productPanel.Controls.Add(lblDesc);
                     productPanel.Controls.Add(pic);
 
-                    // Add the product panel to flowLayoutPanel2
                     flowLayoutPanel2.Controls.Add(productPanel);
 
-                    // Add event handlers for click events
+                    // Events
                     productPanel.Click += ProductSelect_Click;
                     pic.Click += ProductSelect_Click;
                     lblDesc.Click += ProductSelect_Click;

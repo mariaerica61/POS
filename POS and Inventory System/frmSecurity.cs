@@ -17,7 +17,10 @@ namespace POS_and_Inventory_System
         SqlCommand cm = new SqlCommand();
         SqlDataReader dr;
         DBConnection dbcon = new DBConnection();
-        public string _pass, _username = "";
+        public string _pass = "";
+        public string _username = "";
+        public string _displayName = ""; 
+        public string _role = "";
 
         public frmSecurity()
         {
@@ -71,6 +74,7 @@ namespace POS_and_Inventory_System
                     _username = dr["username"].ToString();
                     _role = dr["role"].ToString();
                     _name = dr["name"].ToString();
+                    _displayName = dr["name"].ToString();
                     _pass = dr["password"].ToString();
 
                 }
@@ -87,8 +91,9 @@ namespace POS_and_Inventory_System
                         txtPass.Clear();
                         txtUser.Clear();
                         this.Hide();
+
                         frmPOS frm = new frmPOS(this);
-                        frm.lblName.Text = _username;
+                        frm.lblName.Text = _name;   
                         frm.ShowDialog();
                     }
                     else
@@ -137,6 +142,11 @@ namespace POS_and_Inventory_System
         }
 
         private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUser_Click(object sender, EventArgs e)
         {
 
         }

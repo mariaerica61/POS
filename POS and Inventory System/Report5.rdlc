@@ -60,27 +60,27 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>3.16145cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.41042cm</Width>
+                  <Width>6.07187cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>3.16145cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.07667cm</Width>
+                  <Width>2.73812cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.26188cm</Width>
+                  <Width>2.92333cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>3.16145cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.73229cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -93,7 +93,7 @@
                                 <TextRun>
                                   <Value>PCODE</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -109,7 +109,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>#bb8edb</BackgroundColor>
+                            <BackgroundColor>#ca9b35</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -129,7 +129,7 @@
                                 <TextRun>
                                   <Value>DESCRIPTION</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -145,7 +145,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>#bb8edb</BackgroundColor>
+                            <BackgroundColor>#ca9b35</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -165,7 +165,7 @@
                                 <TextRun>
                                   <Value>PRICE</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -183,7 +183,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>#bb8edb</BackgroundColor>
+                            <BackgroundColor>#ca9b35</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -203,7 +203,7 @@
                                 <TextRun>
                                   <Value>QTY</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -221,7 +221,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>#bb8edb</BackgroundColor>
+                            <BackgroundColor>#ca9b35</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -241,7 +241,7 @@
                                 <TextRun>
                                   <Value>DISCOUNT</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -259,7 +259,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>#bb8edb</BackgroundColor>
+                            <BackgroundColor>#ca9b35</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -279,7 +279,7 @@
                                 <TextRun>
                                   <Value>TOTAL</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <Color>White</Color>
@@ -297,7 +297,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
-                            <BackgroundColor>#bb8edb</BackgroundColor>
+                            <BackgroundColor>#ca9b35</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -309,7 +309,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.75875cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -322,7 +322,7 @@
                                 <TextRun>
                                   <Value>=Fields!pcode.Value</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>11pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -355,7 +355,7 @@
                                 <TextRun>
                                   <Value>=Fields!pdesc.Value</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>11pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -388,7 +388,7 @@
                                 <TextRun>
                                   <Value>=Fields!price.Value</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>11pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -423,7 +423,7 @@
                                 <TextRun>
                                   <Value>=Fields!tot_qty.Value</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>11pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -458,7 +458,7 @@
                                 <TextRun>
                                   <Value>=Fields!tot_disc.Value</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>11pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -493,7 +493,7 @@
                                 <TextRun>
                                   <Value>=Fields!total.Value</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>11pt</FontSize>
                                   </Style>
                                 </TextRun>
@@ -520,7 +520,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.75875cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -533,7 +533,7 @@
                                 <TextRun>
                                   <Value>TOTAL :</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -567,7 +567,7 @@
                                 <TextRun>
                                   <Value />
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -601,7 +601,7 @@
                                 <TextRun>
                                   <Value>=Sum(Fields!price.Value)</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -637,7 +637,7 @@
                                 <TextRun>
                                   <Value>=Sum(Fields!tot_qty.Value)</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -673,7 +673,7 @@
                                 <TextRun>
                                   <Value>=Sum(Fields!tot_disc.Value)</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -709,7 +709,7 @@
                                 <TextRun>
                                   <Value>=Sum(Fields!total.Value)</Value>
                                   <Style>
-                                    <FontFamily>NOW</FontFamily>
+                                    <FontFamily>Palatino Linotype</FontFamily>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -763,8 +763,8 @@
             </TablixRowHierarchy>
             <DataSetName>DataSet5</DataSetName>
             <Left>0.02646cm</Left>
-            <Height>1.8cm</Height>
-            <Width>17.24897cm</Width>
+            <Height>2.24979cm</Height>
+            <Width>21.2177cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -772,13 +772,13 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>2in</Height>
+        <Height>1.63542in</Height>
         <Style />
       </Body>
-      <Width>6.81176in</Width>
+      <Width>8.37426in</Width>
       <Page>
         <PageHeader>
-          <Height>4.10724cm</Height>
+          <Height>4.39828cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -789,9 +789,9 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>3 BSIT2A PROJECT</Value>
+                      <Value>PANINDAHAN</Value>
                       <Style>
-                        <FontFamily>RASputin</FontFamily>
+                        <FontFamily>Palatino Linotype</FontFamily>
                         <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -806,7 +806,7 @@
               <Top>0.60537cm</Top>
               <Left>0.02646cm</Left>
               <Height>0.78521cm</Height>
-              <Width>17.24896cm</Width>
+              <Width>21.24416cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -827,7 +827,7 @@
                       <Value>Cavite State University - Silang Campus</Value>
                       <Style>
                         <FontStyle>Italic</FontStyle>
-                        <FontFamily>now</FontFamily>
+                        <FontFamily>Palatino Linotype</FontFamily>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -841,8 +841,8 @@
               <rd:DefaultName>Textbox14</rd:DefaultName>
               <Top>1.39057cm</Top>
               <Left>0.02646cm</Left>
-              <Height>0.73229cm</Height>
-              <Width>17.2225cm</Width>
+              <Height>0.78521cm</Height>
+              <Width>21.2177cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -858,7 +858,7 @@
               <Top>2.48391cm</Top>
               <Left>0.02646cm</Left>
               <Height>0cm</Height>
-              <Width>17.24896cm</Width>
+              <Width>21.24416cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -875,7 +875,7 @@
                     <TextRun>
                       <Value>SOLD ITEMS</Value>
                       <Style>
-                        <FontFamily>NOW</FontFamily>
+                        <FontFamily>Palatino Linotype</FontFamily>
                         <FontSize>18pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -888,8 +888,8 @@
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
               <Top>2.48391cm</Top>
-              <Height>0.83812cm</Height>
-              <Width>17.24896cm</Width>
+              <Height>0.86458cm</Height>
+              <Width>21.24416cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -910,7 +910,7 @@
                     <TextRun>
                       <Value>=Parameters!pDate.Value</Value>
                       <Style>
-                        <FontFamily>now</FontFamily>
+                        <FontFamily>Palatino Linotype</FontFamily>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
@@ -924,7 +924,7 @@
               <rd:DefaultName>pDate</rd:DefaultName>
               <Top>3.32203cm</Top>
               <Height>0.78521cm</Height>
-              <Width>17.24896cm</Width>
+              <Width>21.24416cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>

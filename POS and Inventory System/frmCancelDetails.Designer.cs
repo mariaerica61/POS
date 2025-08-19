@@ -70,7 +70,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -81,17 +81,17 @@
             this.button2.Size = new System.Drawing.Size(35, 35);
             this.button2.TabIndex = 11;
             this.button2.Text = "X";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label5.Location = new System.Drawing.Point(53, 107);
+            this.label5.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label5.Location = new System.Drawing.Point(53, 132);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 28);
+            this.label5.Size = new System.Drawing.Size(31, 24);
             this.label5.TabIndex = 36;
             this.label5.Text = "ID";
             // 
@@ -99,8 +99,8 @@
             // 
             this.txtID.Enabled = false;
             this.txtID.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtID.Location = new System.Drawing.Point(221, 104);
+            this.txtID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.txtID.Location = new System.Drawing.Point(256, 129);
             this.txtID.Multiline = true;
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(216, 28);
@@ -110,44 +110,44 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label2.Location = new System.Drawing.Point(53, 145);
+            this.label2.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label2.Location = new System.Drawing.Point(53, 170);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 28);
+            this.label2.Size = new System.Drawing.Size(161, 24);
             this.label2.TabIndex = 38;
             this.label2.Text = "PRODUCT CODE";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label3.Location = new System.Drawing.Point(53, 264);
+            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label3.Location = new System.Drawing.Point(53, 289);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 28);
+            this.label3.Size = new System.Drawing.Size(162, 24);
             this.label3.TabIndex = 38;
             this.label3.Text = "TRANSACTION #";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label4.Location = new System.Drawing.Point(53, 185);
+            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label4.Location = new System.Drawing.Point(53, 210);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 28);
+            this.label4.Size = new System.Drawing.Size(136, 24);
             this.label4.TabIndex = 40;
             this.label4.Text = "DESCRIPTION";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label6.Location = new System.Drawing.Point(473, 101);
+            this.label6.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label6.Location = new System.Drawing.Point(502, 126);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 28);
+            this.label6.Size = new System.Drawing.Size(63, 24);
             this.label6.TabIndex = 42;
             this.label6.Text = "PRICE";
             this.label6.Click += new System.EventHandler(this.label6_Click);
@@ -155,44 +155,44 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label7.Location = new System.Drawing.Point(473, 141);
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label7.Location = new System.Drawing.Point(502, 166);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 28);
+            this.label7.Size = new System.Drawing.Size(49, 24);
             this.label7.TabIndex = 44;
             this.label7.Text = "QTY";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label8.Location = new System.Drawing.Point(473, 223);
+            this.label8.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label8.Location = new System.Drawing.Point(502, 248);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 28);
+            this.label8.Size = new System.Drawing.Size(73, 24);
             this.label8.TabIndex = 46;
             this.label8.Text = "TOTAL";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Now", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label10.Location = new System.Drawing.Point(21, 60);
+            this.label10.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold);
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label10.Location = new System.Drawing.Point(21, 85);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(163, 36);
+            this.label10.Size = new System.Drawing.Size(185, 32);
             this.label10.TabIndex = 49;
             this.label10.Text = "SOLD ITEM(S)";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Now", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label11.Location = new System.Drawing.Point(21, 312);
+            this.label11.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold);
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label11.Location = new System.Drawing.Point(21, 337);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(198, 36);
+            this.label11.Size = new System.Drawing.Size(218, 32);
             this.label11.TabIndex = 57;
             this.label11.Text = "CANCEL ITEM(S)";
             // 
@@ -200,8 +200,8 @@
             // 
             this.txtTransNo.Enabled = false;
             this.txtTransNo.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTransNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtTransNo.Location = new System.Drawing.Point(221, 264);
+            this.txtTransNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.txtTransNo.Location = new System.Drawing.Point(256, 289);
             this.txtTransNo.Multiline = true;
             this.txtTransNo.Name = "txtTransNo";
             this.txtTransNo.Size = new System.Drawing.Size(216, 28);
@@ -212,8 +212,8 @@
             // 
             this.txtPrice.Enabled = false;
             this.txtPrice.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtPrice.Location = new System.Drawing.Point(641, 101);
+            this.txtPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.txtPrice.Location = new System.Drawing.Point(658, 126);
             this.txtPrice.Multiline = true;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(216, 28);
@@ -225,8 +225,8 @@
             // 
             this.txtQty.Enabled = false;
             this.txtQty.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtQty.Location = new System.Drawing.Point(641, 141);
+            this.txtQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.txtQty.Location = new System.Drawing.Point(658, 166);
             this.txtQty.Multiline = true;
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(216, 28);
@@ -237,8 +237,8 @@
             // 
             this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtTotal.Location = new System.Drawing.Point(641, 223);
+            this.txtTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.txtTotal.Location = new System.Drawing.Point(658, 248);
             this.txtTotal.Multiline = true;
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(216, 28);
@@ -249,8 +249,8 @@
             // 
             this.txtDescription.Enabled = false;
             this.txtDescription.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtDescription.Location = new System.Drawing.Point(221, 182);
+            this.txtDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.txtDescription.Location = new System.Drawing.Point(256, 207);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(216, 69);
@@ -261,8 +261,8 @@
             // 
             this.txtPcode.Enabled = false;
             this.txtPcode.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPcode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtPcode.Location = new System.Drawing.Point(221, 145);
+            this.txtPcode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.txtPcode.Location = new System.Drawing.Point(256, 170);
             this.txtPcode.Multiline = true;
             this.txtPcode.Name = "txtPcode";
             this.txtPcode.Size = new System.Drawing.Size(216, 28);
@@ -272,8 +272,8 @@
             // txtReason
             // 
             this.txtReason.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReason.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtReason.Location = new System.Drawing.Point(641, 401);
+            this.txtReason.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.txtReason.Location = new System.Drawing.Point(658, 426);
             this.txtReason.Multiline = true;
             this.txtReason.Name = "txtReason";
             this.txtReason.Size = new System.Drawing.Size(216, 62);
@@ -283,8 +283,8 @@
             // 
             this.txtCancel.Enabled = false;
             this.txtCancel.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtCancel.Location = new System.Drawing.Point(221, 397);
+            this.txtCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.txtCancel.Location = new System.Drawing.Point(256, 422);
             this.txtCancel.Multiline = true;
             this.txtCancel.Name = "txtCancel";
             this.txtCancel.Size = new System.Drawing.Size(216, 28);
@@ -294,44 +294,44 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label9.Location = new System.Drawing.Point(473, 401);
+            this.label9.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label9.Location = new System.Drawing.Point(502, 426);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 28);
+            this.label9.Size = new System.Drawing.Size(109, 24);
             this.label9.TabIndex = 68;
             this.label9.Text = "REASON(S)";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label12.Location = new System.Drawing.Point(53, 443);
+            this.label12.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label12.Location = new System.Drawing.Point(53, 468);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(188, 28);
+            this.label12.Size = new System.Drawing.Size(209, 24);
             this.label12.TabIndex = 67;
             this.label12.Text = "ADD TO INVENTORY?";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label13.Location = new System.Drawing.Point(53, 397);
+            this.label13.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label13.Location = new System.Drawing.Point(53, 422);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(140, 28);
+            this.label13.Size = new System.Drawing.Size(152, 24);
             this.label13.TabIndex = 66;
             this.label13.Text = "CANCELLED BY";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label14.Location = new System.Drawing.Point(53, 363);
+            this.label14.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label14.Location = new System.Drawing.Point(53, 388);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(82, 28);
+            this.label14.Size = new System.Drawing.Size(86, 24);
             this.label14.TabIndex = 65;
             this.label14.Text = "VOID BY";
             // 
@@ -339,8 +339,8 @@
             // 
             this.txtVoid.Enabled = false;
             this.txtVoid.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtVoid.Location = new System.Drawing.Point(221, 360);
+            this.txtVoid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.txtVoid.Location = new System.Drawing.Point(256, 385);
             this.txtVoid.Multiline = true;
             this.txtVoid.Name = "txtVoid";
             this.txtVoid.Size = new System.Drawing.Size(216, 28);
@@ -350,12 +350,12 @@
             // cboAction
             // 
             this.cboAction.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboAction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.cboAction.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
             this.cboAction.FormattingEnabled = true;
             this.cboAction.Items.AddRange(new object[] {
             "Yes",
             "No"});
-            this.cboAction.Location = new System.Drawing.Point(247, 440);
+            this.cboAction.Location = new System.Drawing.Point(282, 465);
             this.cboAction.Name = "cboAction";
             this.cboAction.Size = new System.Drawing.Size(190, 36);
             this.cboAction.TabIndex = 72;
@@ -363,8 +363,8 @@
             // txtCancelQty
             // 
             this.txtCancelQty.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCancelQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtCancelQty.Location = new System.Drawing.Point(641, 360);
+            this.txtCancelQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.txtCancelQty.Location = new System.Drawing.Point(658, 385);
             this.txtCancelQty.Multiline = true;
             this.txtCancelQty.Name = "txtCancelQty";
             this.txtCancelQty.Size = new System.Drawing.Size(216, 28);
@@ -376,33 +376,33 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label15.Location = new System.Drawing.Point(473, 360);
+            this.label15.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label15.Location = new System.Drawing.Point(502, 385);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(122, 28);
+            this.label15.Size = new System.Drawing.Size(131, 24);
             this.label15.TabIndex = 74;
             this.label15.Text = "CANCEL QTY";
             // 
             // btnCancelOrder
             // 
-            this.btnCancelOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.btnCancelOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.btnCancelOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelOrder.FlatAppearance.BorderSize = 0;
             this.btnCancelOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelOrder.Font = new System.Drawing.Font("Rasputin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelOrder.Font = new System.Drawing.Font("Agrandir Grand Heavy", 10F, System.Drawing.FontStyle.Bold);
             this.btnCancelOrder.ForeColor = System.Drawing.Color.White;
-            this.btnCancelOrder.Location = new System.Drawing.Point(696, 480);
+            this.btnCancelOrder.Location = new System.Drawing.Point(702, 521);
             this.btnCancelOrder.Name = "btnCancelOrder";
-            this.btnCancelOrder.Size = new System.Drawing.Size(161, 41);
+            this.btnCancelOrder.Size = new System.Drawing.Size(195, 41);
             this.btnCancelOrder.TabIndex = 76;
             this.btnCancelOrder.Text = "CANCEL ORDER";
-            this.btnCancelOrder.UseVisualStyleBackColor = true;
+            this.btnCancelOrder.UseVisualStyleBackColor = false;
             this.btnCancelOrder.Click += new System.EventHandler(this.btnCancelOrder_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.lblName);
@@ -410,7 +410,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(909, 58);
+            this.panel1.Size = new System.Drawing.Size(919, 58);
             this.panel1.TabIndex = 77;
             // 
             // button1
@@ -431,11 +431,11 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Rasputin", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Agrandir Grand Heavy", 20F, System.Drawing.FontStyle.Bold);
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(33, 12);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(351, 30);
+            this.label16.Size = new System.Drawing.Size(472, 36);
             this.label16.TabIndex = 2;
             this.label16.Text = "CANCEL ORDER DETAILS";
             // 
@@ -465,8 +465,8 @@
             // 
             this.txtDiscount.Enabled = false;
             this.txtDiscount.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.txtDiscount.Location = new System.Drawing.Point(641, 182);
+            this.txtDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.txtDiscount.Location = new System.Drawing.Point(658, 207);
             this.txtDiscount.Multiline = true;
             this.txtDiscount.Name = "txtDiscount";
             this.txtDiscount.Size = new System.Drawing.Size(216, 28);
@@ -476,11 +476,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label1.Location = new System.Drawing.Point(473, 182);
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 13F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label1.Location = new System.Drawing.Point(502, 207);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 28);
+            this.label1.Size = new System.Drawing.Size(110, 24);
             this.label1.TabIndex = 79;
             this.label1.Text = "DISCOUNT";
             // 
@@ -489,7 +489,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(909, 538);
+            this.ClientSize = new System.Drawing.Size(919, 583);
             this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDiscount);
