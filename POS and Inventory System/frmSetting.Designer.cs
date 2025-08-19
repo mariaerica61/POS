@@ -30,18 +30,12 @@
         {
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtStore = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
@@ -77,7 +71,6 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -87,58 +80,44 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Rasputin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(862, 12);
+            this.button2.Location = new System.Drawing.Point(866, 27);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(35, 35);
             this.button2.TabIndex = 12;
             this.button2.Text = "X";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.txtAddress);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.txtStore);
             this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(18, 55);
+            this.panel1.Location = new System.Drawing.Point(30, 122);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(427, 467);
+            this.panel1.Size = new System.Drawing.Size(419, 280);
             this.panel1.TabIndex = 14;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label14.Font = new System.Drawing.Font("Now", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(134, 147);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(173, 25);
-            this.label14.TabIndex = 23;
-            this.label14.Text = "PROJECT BY: BSIT2A";
-            // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(177)))), ((int)(((byte)(102)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Rasputin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(289, 421);
+            this.button1.Location = new System.Drawing.Point(293, 218);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 30);
             this.button1.TabIndex = 22;
@@ -147,128 +126,68 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Rasputin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(206, 421);
+            this.button3.Location = new System.Drawing.Point(210, 218);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(68, 30);
             this.button3.TabIndex = 20;
             this.button3.Text = "SAVE";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // txtAddress
             // 
-            this.txtAddress.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(141)))));
-            this.txtAddress.Location = new System.Drawing.Point(147, 87);
+            this.txtAddress.Font = new System.Drawing.Font("Palatino Linotype", 12F);
+            this.txtAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.txtAddress.Location = new System.Drawing.Point(153, 135);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(243, 29);
+            this.txtAddress.Size = new System.Drawing.Size(253, 29);
             this.txtAddress.TabIndex = 19;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
-            this.label13.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label13.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(34, 87);
+            this.label13.Location = new System.Drawing.Point(14, 135);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(72, 21);
+            this.label13.Size = new System.Drawing.Size(89, 22);
             this.label13.TabIndex = 18;
             this.label13.Text = "ADDRESS";
             // 
             // txtStore
             // 
-            this.txtStore.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(141)))));
-            this.txtStore.Location = new System.Drawing.Point(147, 42);
+            this.txtStore.Font = new System.Drawing.Font("Palatino Linotype", 12F);
+            this.txtStore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.txtStore.Location = new System.Drawing.Point(153, 90);
             this.txtStore.Name = "txtStore";
-            this.txtStore.Size = new System.Drawing.Size(243, 29);
+            this.txtStore.Size = new System.Drawing.Size(253, 29);
             this.txtStore.TabIndex = 17;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
-            this.label12.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label12.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(34, 42);
+            this.label12.Location = new System.Drawing.Point(14, 90);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(98, 21);
+            this.label12.Size = new System.Drawing.Size(120, 22);
             this.label12.TabIndex = 16;
             this.label12.Text = "STORE NAME";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
-            this.panel2.Controls.Add(this.label19);
-            this.panel2.Controls.Add(this.label18);
-            this.panel2.Controls.Add(this.label17);
-            this.panel2.Controls.Add(this.label16);
-            this.panel2.Location = new System.Drawing.Point(43, 186);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(342, 203);
-            this.panel2.TabIndex = 25;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.White;
-            this.label19.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label19.Location = new System.Drawing.Point(55, 30);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(234, 21);
-            this.label19.TabIndex = 28;
-            this.label19.Text = "VIDAMO, MA.CRISELDA ERICA M.";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.White;
-            this.label18.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label18.Location = new System.Drawing.Point(111, 69);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(120, 21);
-            this.label18.TabIndex = 27;
-            this.label18.Text = "LINGAT, IVAN D.";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.White;
-            this.label17.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label17.Location = new System.Drawing.Point(103, 145);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(140, 21);
-            this.label17.TabIndex = 26;
-            this.label17.Text = "REYES, JERICHO G.";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.White;
-            this.label16.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
-            this.label16.Location = new System.Drawing.Point(100, 107);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(137, 21);
-            this.label16.TabIndex = 25;
-            this.label16.Text = "ORTIZ, ARABELA B.";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Agrandir Grand Heavy", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
-            this.label1.Location = new System.Drawing.Point(74, 11);
+            this.label1.Location = new System.Drawing.Point(84, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(310, 36);
             this.label1.TabIndex = 16;
@@ -279,7 +198,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Agrandir Grand Heavy", 20F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
-            this.label2.Location = new System.Drawing.Point(542, 12);
+            this.label2.Location = new System.Drawing.Point(543, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(286, 36);
             this.label2.TabIndex = 17;
@@ -290,10 +209,10 @@
             // 
             this.metroTabControl1.Controls.Add(this.metroTabPage1);
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
-            this.metroTabControl1.Location = new System.Drawing.Point(470, 55);
+            this.metroTabControl1.Location = new System.Drawing.Point(467, 85);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(427, 471);
+            this.metroTabControl1.SelectedIndex = 1;
+            this.metroTabControl1.Size = new System.Drawing.Size(444, 436);
             this.metroTabControl1.Style = MetroFramework.MetroColorStyle.Black;
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -311,7 +230,7 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(419, 429);
+            this.metroTabPage1.Size = new System.Drawing.Size(448, 394);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "Create Account";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -335,16 +254,16 @@
             this.panel3.Controls.Add(this.txtPass);
             this.panel3.Location = new System.Drawing.Point(0, 1);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(419, 428);
+            this.panel3.Size = new System.Drawing.Size(440, 278);
             this.panel3.TabIndex = 26;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // txtRetype
             // 
             this.txtRetype.BackColor = System.Drawing.Color.White;
-            this.txtRetype.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRetype.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(141)))));
-            this.txtRetype.Location = new System.Drawing.Point(162, 249);
+            this.txtRetype.Font = new System.Drawing.Font("Palatino Linotype", 12F);
+            this.txtRetype.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.txtRetype.Location = new System.Drawing.Point(182, 161);
             this.txtRetype.Name = "txtRetype";
             this.txtRetype.PasswordChar = '•';
             this.txtRetype.Size = new System.Drawing.Size(243, 29);
@@ -353,25 +272,25 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
-            this.label3.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(17, 105);
+            this.label3.Location = new System.Drawing.Point(17, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 21);
+            this.label3.Size = new System.Drawing.Size(85, 22);
             this.label3.TabIndex = 4;
             this.label3.Text = "Username";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(177)))), ((int)(((byte)(102)))));
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Rasputin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(304, 301);
+            this.btnCancel.Location = new System.Drawing.Point(304, 216);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(101, 30);
             this.btnCancel.TabIndex = 25;
@@ -381,26 +300,26 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Rasputin", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(218, 301);
+            this.btnSave.Location = new System.Drawing.Point(218, 216);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(68, 30);
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "SAVE";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtUser
             // 
             this.txtUser.BackColor = System.Drawing.Color.White;
-            this.txtUser.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(141)))));
-            this.txtUser.Location = new System.Drawing.Point(162, 105);
+            this.txtUser.Font = new System.Drawing.Font("Palatino Linotype", 12F);
+            this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.txtUser.Location = new System.Drawing.Point(182, 17);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(243, 29);
             this.txtUser.TabIndex = 5;
@@ -409,34 +328,35 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
-            this.label4.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(17, 141);
+            this.label4.Location = new System.Drawing.Point(17, 56);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 21);
+            this.label4.Size = new System.Drawing.Size(54, 22);
             this.label4.TabIndex = 6;
             this.label4.Text = "Name";
             // 
             // cboRole
             // 
             this.cboRole.BackColor = System.Drawing.Color.White;
-            this.cboRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(141)))));
+            this.cboRole.Font = new System.Drawing.Font("Palatino Linotype", 12F);
+            this.cboRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.cboRole.FormattingEnabled = true;
             this.cboRole.Items.AddRange(new object[] {
             "System Administrator",
             "Cashier"});
-            this.cboRole.Location = new System.Drawing.Point(162, 177);
+            this.cboRole.Location = new System.Drawing.Point(182, 89);
             this.cboRole.Name = "cboRole";
-            this.cboRole.Size = new System.Drawing.Size(243, 29);
+            this.cboRole.Size = new System.Drawing.Size(243, 30);
             this.cboRole.TabIndex = 22;
             // 
             // txtName
             // 
             this.txtName.BackColor = System.Drawing.Color.White;
-            this.txtName.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(141)))));
-            this.txtName.Location = new System.Drawing.Point(162, 141);
+            this.txtName.Font = new System.Drawing.Font("Palatino Linotype", 12F);
+            this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.txtName.Location = new System.Drawing.Point(182, 53);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(243, 29);
             this.txtName.TabIndex = 7;
@@ -444,45 +364,45 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
-            this.label5.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label5.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(17, 177);
+            this.label5.Location = new System.Drawing.Point(17, 92);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 21);
+            this.label5.Size = new System.Drawing.Size(43, 22);
             this.label5.TabIndex = 8;
             this.label5.Text = "Role";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
-            this.label8.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label8.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(17, 249);
+            this.label8.Location = new System.Drawing.Point(17, 164);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(131, 21);
+            this.label8.Size = new System.Drawing.Size(148, 22);
             this.label8.TabIndex = 12;
             this.label8.Text = "Confirm Password";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
-            this.label7.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(17, 213);
+            this.label7.Location = new System.Drawing.Point(17, 128);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 21);
+            this.label7.Size = new System.Drawing.Size(81, 22);
             this.label7.TabIndex = 10;
             this.label7.Text = "Password";
             // 
             // txtPass
             // 
             this.txtPass.BackColor = System.Drawing.Color.White;
-            this.txtPass.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(141)))));
-            this.txtPass.Location = new System.Drawing.Point(162, 213);
+            this.txtPass.Font = new System.Drawing.Font("Palatino Linotype", 12F);
+            this.txtPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.txtPass.Location = new System.Drawing.Point(182, 125);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '•';
             this.txtPass.Size = new System.Drawing.Size(243, 29);
@@ -497,7 +417,7 @@
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(419, 429);
+            this.metroTabPage2.Size = new System.Drawing.Size(436, 394);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "Change Password";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
@@ -518,18 +438,18 @@
             this.panel4.Controls.Add(this.label26);
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(419, 428);
+            this.panel4.Size = new System.Drawing.Size(452, 279);
             this.panel4.TabIndex = 27;
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(177)))), ((int)(((byte)(102)))));
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Rasputin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(302, 289);
+            this.button4.Location = new System.Drawing.Point(302, 217);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(103, 30);
             this.button4.TabIndex = 27;
@@ -538,26 +458,26 @@
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Rasputin", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(219, 289);
+            this.button5.Location = new System.Drawing.Point(219, 217);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(68, 30);
             this.button5.TabIndex = 26;
             this.button5.Text = "SAVE";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // txtRetype1
             // 
             this.txtRetype1.BackColor = System.Drawing.Color.White;
-            this.txtRetype1.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRetype1.Font = new System.Drawing.Font("Palatino Linotype", 12F);
             this.txtRetype1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(141)))));
-            this.txtRetype1.Location = new System.Drawing.Point(162, 231);
+            this.txtRetype1.Location = new System.Drawing.Point(162, 159);
             this.txtRetype1.Name = "txtRetype1";
             this.txtRetype1.PasswordChar = '●';
             this.txtRetype1.Size = new System.Drawing.Size(243, 29);
@@ -566,10 +486,10 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
+            this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.label27.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(15, 234);
+            this.label27.Location = new System.Drawing.Point(15, 162);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(132, 21);
             this.label27.TabIndex = 36;
@@ -578,9 +498,9 @@
             // txtNew1
             // 
             this.txtNew1.BackColor = System.Drawing.Color.White;
-            this.txtNew1.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNew1.Font = new System.Drawing.Font("Palatino Linotype", 12F);
             this.txtNew1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(141)))));
-            this.txtNew1.Location = new System.Drawing.Point(162, 186);
+            this.txtNew1.Location = new System.Drawing.Point(162, 114);
             this.txtNew1.Name = "txtNew1";
             this.txtNew1.PasswordChar = '●';
             this.txtNew1.Size = new System.Drawing.Size(243, 29);
@@ -589,10 +509,10 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
+            this.label23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.label23.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(15, 189);
+            this.label23.Location = new System.Drawing.Point(15, 117);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(109, 21);
             this.label23.TabIndex = 27;
@@ -601,9 +521,9 @@
             // txtOld1
             // 
             this.txtOld1.BackColor = System.Drawing.Color.White;
-            this.txtOld1.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOld1.Font = new System.Drawing.Font("Palatino Linotype", 12F);
             this.txtOld1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(141)))));
-            this.txtOld1.Location = new System.Drawing.Point(162, 141);
+            this.txtOld1.Location = new System.Drawing.Point(162, 69);
             this.txtOld1.Name = "txtOld1";
             this.txtOld1.PasswordChar = '●';
             this.txtOld1.Size = new System.Drawing.Size(243, 29);
@@ -612,10 +532,10 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
+            this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.label24.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Location = new System.Drawing.Point(15, 141);
+            this.label24.Location = new System.Drawing.Point(15, 69);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(102, 21);
             this.label24.TabIndex = 24;
@@ -625,9 +545,9 @@
             // 
             this.txtUser1.BackColor = System.Drawing.Color.White;
             this.txtUser1.Enabled = false;
-            this.txtUser1.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUser1.Font = new System.Drawing.Font("Palatino Linotype", 12F);
             this.txtUser1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(3)))), ((int)(((byte)(141)))));
-            this.txtUser1.Location = new System.Drawing.Point(162, 101);
+            this.txtUser1.Location = new System.Drawing.Point(162, 29);
             this.txtUser1.Name = "txtUser1";
             this.txtUser1.Size = new System.Drawing.Size(243, 29);
             this.txtUser1.TabIndex = 23;
@@ -635,10 +555,10 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(142)))), ((int)(((byte)(219)))));
+            this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.label26.Font = new System.Drawing.Font("Now", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(15, 101);
+            this.label26.Location = new System.Drawing.Point(15, 29);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(77, 21);
             this.label26.TabIndex = 22;
@@ -714,7 +634,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(909, 538);
+            this.ClientSize = new System.Drawing.Size(935, 436);
             this.ControlBox = false;
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.label2);
@@ -728,8 +648,6 @@
             this.Load += new System.EventHandler(this.frmSetting_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -766,14 +684,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel3;
         public MetroFramework.Controls.MetroTabPage metroTabPage2;
         private System.Windows.Forms.Panel panel4;

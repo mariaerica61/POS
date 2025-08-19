@@ -676,14 +676,14 @@ namespace POS_and_Inventory_System
                 while (dr.Read())
                 {
                     btnCategory = new Button();
-                    btnCategory.Width = 100;
-                    btnCategory.Height = 35;
+                    btnCategory.Width = 168;
+                    btnCategory.Height = 49;
                     btnCategory.Text = dr["category"].ToString();
                     btnCategory.FlatStyle = FlatStyle.Flat;
-                    btnCategory.BackColor = Color.FromArgb(75, 207, 250);
-                    btnCategory.ForeColor = Color.White;
+                    btnCategory.BackColor = Color.FromArgb(114, 132, 130);
+                    btnCategory.ForeColor = Color.FromArgb(255, 255, 255);
                     btnCategory.Cursor = Cursors.Hand;
-                    btnCategory.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+                    btnCategory.Font = new Font("Palatino Linotype", 10F, FontStyle.Bold);
                     btnCategory.Tag = dr["id"].ToString(); // Store the ID for future use
 
                     // Add button to flowLayoutPanel1
@@ -735,14 +735,14 @@ namespace POS_and_Inventory_System
         private void AddAllCategoryButton()
         {
             Button btnAll = new Button();
-            btnAll.Width = 100;
-            btnAll.Height = 35;
+            btnAll.Width = 168;
+            btnAll.Height = 49;
             btnAll.Text = "ALL";
             btnAll.FlatStyle = FlatStyle.Flat;
-            btnAll.BackColor = Color.FromArgb(30, 136, 229); // Default selected color
+            btnAll.BackColor = Color.FromArgb(47, 68, 66); // Default selected color
             btnAll.ForeColor = Color.White;
             btnAll.Cursor = Cursors.Hand;
-            btnAll.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            btnAll.Font = new Font("Palatino Linotype", 10F, FontStyle.Bold);
             btnAll.Tag = "0"; // Special tag for all categories
 
             // Insert at the beginning of flowLayoutPanel1

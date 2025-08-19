@@ -35,11 +35,9 @@
             this.lblRole = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnProduct = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
@@ -59,16 +57,18 @@
             this.btnAdjustment = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -88,11 +88,11 @@
             // lblname
             // 
             this.lblname.AutoSize = true;
-            this.lblname.Font = new System.Drawing.Font("Agrandir Grand Heavy", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblname.Font = new System.Drawing.Font("Agrandir Grand Heavy", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.lblname.Location = new System.Drawing.Point(375, 12);
             this.lblname.Name = "lblname";
-            this.lblname.Size = new System.Drawing.Size(97, 28);
+            this.lblname.Size = new System.Drawing.Size(89, 25);
             this.lblname.TabIndex = 12;
             this.lblname.Text = "Name";
             this.lblname.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -146,78 +146,41 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // panel4
+            // pictureBox3
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
-            this.panel4.Controls.Add(this.button21);
-            this.panel4.Controls.Add(this.button22);
-            this.panel4.Controls.Add(this.button19);
-            this.panel4.Controls.Add(this.btnSettings);
-            this.panel4.Location = new System.Drawing.Point(20, 667);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(231, 80);
-            this.panel4.TabIndex = 2;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(100, 14);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(100, 80);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 37;
+            this.pictureBox3.TabStop = false;
             // 
-            // button21
+            // label1
             // 
-            this.button21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button21.BackgroundImage")));
-            this.button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button21.FlatAppearance.BorderSize = 0;
-            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button21.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button21.ForeColor = System.Drawing.Color.White;
-            this.button21.Location = new System.Drawing.Point(21, 43);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(20, 20);
-            this.button21.TabIndex = 20;
-            this.button21.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
+            this.label1.Location = new System.Drawing.Point(75, 123);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 19);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "WHOLESALE STORE";
             // 
-            // button22
+            // label2
             // 
-            this.button22.FlatAppearance.BorderSize = 0;
-            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button22.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button22.ForeColor = System.Drawing.Color.White;
-            this.button22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button22.Location = new System.Drawing.Point(47, 36);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(129, 40);
-            this.button22.TabIndex = 19;
-            this.button22.Text = "Logout";
-            this.button22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
-            // 
-            // button19
-            // 
-            this.button19.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button19.BackgroundImage")));
-            this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button19.FlatAppearance.BorderSize = 0;
-            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button19.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.ForeColor = System.Drawing.Color.White;
-            this.button19.Location = new System.Drawing.Point(21, 10);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(20, 20);
-            this.button19.TabIndex = 18;
-            this.button19.UseVisualStyleBackColor = true;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.FlatAppearance.BorderSize = 0;
-            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSettings.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(47, 3);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(129, 35);
-            this.btnSettings.TabIndex = 17;
-            this.btnSettings.Text = "Settings";
-            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.UseVisualStyleBackColor = true;
-            this.btnSettings.Click += new System.EventHandler(this.button20_Click);
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Agrandir Grand Heavy", 18F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(33, 91);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(238, 32);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "PANINDAHAN";
             // 
             // panel3
             // 
@@ -517,6 +480,79 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
+            this.panel4.Controls.Add(this.button21);
+            this.panel4.Controls.Add(this.button22);
+            this.panel4.Controls.Add(this.button19);
+            this.panel4.Controls.Add(this.btnSettings);
+            this.panel4.Location = new System.Drawing.Point(20, 667);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(231, 80);
+            this.panel4.TabIndex = 2;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // button21
+            // 
+            this.button21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button21.BackgroundImage")));
+            this.button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button21.FlatAppearance.BorderSize = 0;
+            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button21.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button21.ForeColor = System.Drawing.Color.White;
+            this.button21.Location = new System.Drawing.Point(21, 43);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(20, 20);
+            this.button21.TabIndex = 20;
+            this.button21.UseVisualStyleBackColor = true;
+            // 
+            // button22
+            // 
+            this.button22.FlatAppearance.BorderSize = 0;
+            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button22.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button22.ForeColor = System.Drawing.Color.White;
+            this.button22.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button22.Location = new System.Drawing.Point(47, 36);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(129, 40);
+            this.button22.TabIndex = 19;
+            this.button22.Text = "Logout";
+            this.button22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
+            // 
+            // button19
+            // 
+            this.button19.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button19.BackgroundImage")));
+            this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button19.FlatAppearance.BorderSize = 0;
+            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button19.Font = new System.Drawing.Font("Now", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button19.ForeColor = System.Drawing.Color.White;
+            this.button19.Location = new System.Drawing.Point(21, 10);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(20, 20);
+            this.button19.TabIndex = 18;
+            this.button19.UseVisualStyleBackColor = true;
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Location = new System.Drawing.Point(47, 3);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(129, 35);
+            this.btnSettings.TabIndex = 17;
+            this.btnSettings.Text = "Settings";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.button20_Click);
+            // 
             // panel5
             // 
             this.panel5.Location = new System.Drawing.Point(304, 52);
@@ -524,42 +560,6 @@
             this.panel5.Size = new System.Drawing.Size(1080, 734);
             this.panel5.TabIndex = 2;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(100, 14);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 80);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 37;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(155)))), ((int)(((byte)(53)))));
-            this.label1.Location = new System.Drawing.Point(75, 123);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 19);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "WHOLESALE STORE";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Agrandir Grand Heavy", 18F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(33, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(238, 32);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "PANINDAHAN";
             // 
             // Form1
             // 
@@ -579,9 +579,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
