@@ -168,14 +168,15 @@ namespace POS_and_Inventory_System
                 {
                     if (btn.Text == "ALL")
                     {
-                        btn.BackColor = Color.FromArgb(30, 136, 229);
+                        btn.BackColor = Color.FromArgb(47, 68, 66); // highlight ALL
                     }
-                    else
+                    else if (btn.Tag is Color originalColor)
                     {
-                        btn.BackColor = Color.FromArgb(75, 207, 250);
+                        btn.BackColor = originalColor; // restore each category’s original color
                     }
                 }
             }
+
 
             // Show confirmation message
             MessageBox.Show("New transaction started!\nTransaction No: " + lblTransno.Text,
@@ -692,7 +693,7 @@ namespace POS_and_Inventory_System
                     btnCategory.ForeColor = Color.White;
                     btnCategory.Cursor = Cursors.Hand;
                     btnCategory.Font = new Font("Palatino Linotype", 10F, FontStyle.Bold);
-                    btnCategory.Tag = dr["id"].ToString();
+                    btnCategory.Tag = btnCategory.BackColor;
 
                     // Centering
                     btnCategory.Anchor = AnchorStyles.None;
@@ -756,7 +757,7 @@ namespace POS_and_Inventory_System
             btnAll.ForeColor = Color.White;
             btnAll.Cursor = Cursors.Hand;
             btnAll.Font = new Font("Palatino Linotype", 10F, FontStyle.Bold);
-            btnAll.Tag = "0";
+            btnAll.Tag = btnAll.BackColor;
 
             // Centering
             btnAll.Anchor = AnchorStyles.None;
@@ -791,7 +792,7 @@ namespace POS_and_Inventory_System
             }
 
             // Highlight the "ALL" button
-            clickedButton.BackColor = Color.FromArgb(30, 136, 229);
+            clickedButton.BackColor = Color.FromArgb(47, 68, 66);
 
             // Load all products
             LoadMenu();
@@ -890,7 +891,7 @@ namespace POS_and_Inventory_System
                     lblDesc.TextAlign = ContentAlignment.MiddleCenter;
                     lblDesc.Dock = DockStyle.Bottom;
                     lblDesc.Height = 30;
-                    lblDesc.BackColor = Color.FromArgb(34, 112, 147);
+                    lblDesc.BackColor = Color.FromArgb(47, 68, 66);
                     lblDesc.ForeColor = Color.White;
                     lblDesc.Tag = dr["pcode"].ToString();
                     lblDesc.Cursor = Cursors.Hand;
@@ -898,11 +899,11 @@ namespace POS_and_Inventory_System
                     // Price label
                     lblPrice = new Label();
                     lblPrice.Text = "₱" + double.Parse(dr["price"].ToString()).ToString("#,##0.00");
-                    lblPrice.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+                    lblPrice.Font = new Font("Palatino Linotype", 9, FontStyle.Bold);
                     lblPrice.TextAlign = ContentAlignment.MiddleCenter;
                     lblPrice.Dock = DockStyle.Bottom;
                     lblPrice.Height = 30;
-                    lblPrice.BackColor = Color.FromArgb(34, 112, 147);
+                    lblPrice.BackColor = Color.FromArgb(202, 155, 53);
                     lblPrice.ForeColor = Color.White;
                     lblPrice.Tag = dr["pcode"].ToString();
                     lblPrice.Cursor = Cursors.Hand;

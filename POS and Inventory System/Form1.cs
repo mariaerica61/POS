@@ -141,11 +141,8 @@ namespace POS_and_Inventory_System
         {
             frmSetting frm = new frmSetting(this);
             frm.LoadRecords();
-            frm.TopLevel = false;
-            panel5.Controls.Add(frm);
             frm.txtUser1.Text = _user;
-            frm.BringToFront();
-            frm.Show();
+            frm.ShowDialog(); // Open as dialog
         }
 
         // Open the sales history form as a dialog

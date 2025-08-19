@@ -170,6 +170,7 @@
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Column2.HeaderText = "PCODE";
             this.Column2.Name = "Column2";
+            this.Column2.Visible = false;
             this.Column2.Width = 112;
             // 
             // Column8

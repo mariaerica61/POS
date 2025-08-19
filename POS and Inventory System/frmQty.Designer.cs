@@ -36,7 +36,7 @@
             // 
             this.txtQty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtQty.Font = new System.Drawing.Font("Now", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(48)))), ((int)(((byte)(160)))));
+            this.txtQty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.txtQty.Location = new System.Drawing.Point(0, 0);
             this.txtQty.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.txtQty.Name = "txtQty";

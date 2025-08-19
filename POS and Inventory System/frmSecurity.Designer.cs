@@ -127,7 +127,7 @@
             this.txtUser.CustomButton.Visible = false;
             this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.txtUser.Lines = new string[0];
-            this.txtUser.Location = new System.Drawing.Point(577, 185);
+            this.txtUser.Location = new System.Drawing.Point(577, 190);
             this.txtUser.MaxLength = 32767;
             this.txtUser.Name = "txtUser";
             this.txtUser.PasswordChar = '\0';
@@ -152,7 +152,7 @@
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Agrandir Grand Light", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
-            this.label7.Location = new System.Drawing.Point(427, 185);
+            this.label7.Location = new System.Drawing.Point(427, 190);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(122, 21);
             this.label7.TabIndex = 11;
@@ -165,7 +165,7 @@
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label8.Font = new System.Drawing.Font("Agrandir Grand Light", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
-            this.label8.Location = new System.Drawing.Point(427, 255);
+            this.label8.Location = new System.Drawing.Point(427, 260);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(127, 21);
             this.label8.TabIndex = 12;
@@ -178,7 +178,7 @@
             this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label9.Font = new System.Drawing.Font("Agrandir Grand Heavy", 24F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
-            this.label9.Location = new System.Drawing.Point(423, 71);
+            this.label9.Location = new System.Drawing.Point(423, 76);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(157, 43);
             this.label9.TabIndex = 13;
@@ -192,7 +192,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Agrandir Grand Heavy", 12F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(608, 328);
+            this.btnExit.Location = new System.Drawing.Point(608, 333);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(132, 42);
             this.btnExit.TabIndex = 27;
@@ -208,7 +208,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Agrandir Grand Heavy", 12F, System.Drawing.FontStyle.Bold);
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(460, 328);
+            this.btnLogin.Location = new System.Drawing.Point(460, 333);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(132, 42);
             this.btnLogin.TabIndex = 26;
@@ -221,7 +221,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
-            this.label10.Location = new System.Drawing.Point(415, 380);
+            this.label10.Location = new System.Drawing.Point(408, 380);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(382, 31);
             this.label10.TabIndex = 29;
@@ -244,7 +244,7 @@
             this.txtPass.CustomButton.Visible = false;
             this.txtPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.txtPass.Lines = new string[0];
-            this.txtPass.Location = new System.Drawing.Point(577, 255);
+            this.txtPass.Location = new System.Drawing.Point(577, 260);
             this.txtPass.MaxLength = 32767;
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '●';
@@ -271,9 +271,10 @@
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(68)))), ((int)(((byte)(66)))));
             this.label11.Location = new System.Drawing.Point(450, 426);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(212, 26);
+            this.label11.Size = new System.Drawing.Size(202, 26);
             this.label11.TabIndex = 11;
-            this.label11.Text = "Forgot your Passoword?";
+            this.label11.Text = "Forgot your Password?";
+            this.label11.Visible = false;
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // txtReset
@@ -290,6 +291,7 @@
             this.txtReset.Text = "Get Here";
             this.txtReset.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtReset.UseVisualStyleBackColor = true;
+            this.txtReset.Visible = false;
             this.txtReset.Click += new System.EventHandler(this.txtReset_Click);
             // 
             // label1
@@ -299,7 +301,7 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(132)))), ((int)(((byte)(130)))));
-            this.label1.Location = new System.Drawing.Point(426, 114);
+            this.label1.Location = new System.Drawing.Point(426, 119);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(250, 26);
             this.label1.TabIndex = 32;

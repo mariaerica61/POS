@@ -37,27 +37,67 @@ namespace POS_and_Inventory_System
         }
         public void LoadRecord()
         {
-            int i = 0;
-            cn.Open();
-            dataGridView6.Rows.Clear();
-            if(cboTopSelect.Text == "SORT BY QUANTITY")
+            try
             {
-                cm = new SqlCommand("select top 10 pcode, pdesc, isnull(sum(qty),0) as  qty, isnull(sum(total),0) as total  from vwSoldItems where sdate between '" + dtp1.Value.ToString("yyyy-MM-dd") + "' and '" + dtp2.Value.ToString("yyyy-MM-dd") + "' and status like 'Sold' group by pcode, pdesc order by qty desc", cn);
-            }
-            else if (cboTopSelect.Text == "SORT BY TOTAL AMOUNT")
-            {
-                cm = new SqlCommand("select top 10 pcode, pdesc, isnull(sum(qty),0) as  qty, isnull(sum(total),0) as total  from vwSoldItems where sdate between '" + dtp1.Value.ToString("yyyy-MM-dd") + "' and '" + dtp2.Value.ToString("yyyy-MM-dd") + "' and status like 'Sold' group by pcode, pdesc order by total desc", cn);
-            }
+                int i = 0;
+                cn.Open();
+                dataGridView6.Rows.Clear();
 
-            cm = new SqlCommand("select top 10 pcode, pdesc, isnull(sum(qty),0) as  qty, isnull(sum(total),0) as total  from vwSoldItems where sdate between '" + dtp1.Value.ToString("yyyy-MM-dd") + "' and '" + dtp2.Value.ToString("yyyy-MM-dd") + "' and status like 'Sold' group by pcode, pdesc order by qty desc", cn);
-            dr = cm.ExecuteReader();
-            while (dr.Read())
-            {
-                i++;
-                dataGridView6.Rows.Add(i, dr["pcode"].ToString(), dr["pdesc"].ToString(), dr["qty"].ToString(), double.Parse(dr["total"].ToString()).ToString("#,##0.00"));
+                string baseQuery = @"
+            SELECT TOP 10 
+                c.pcode, 
+                p.pdesc, 
+                ISNULL(SUM(c.qty), 0) as qty, 
+                ISNULL(SUM(c.total), 0) as total 
+            FROM tblCart c 
+            INNER JOIN tblProduct p ON c.pcode = p.pcode 
+            WHERE c.sdate BETWEEN @startDate AND @endDate 
+            AND c.status LIKE 'Sold' 
+            GROUP BY c.pcode, p.pdesc";
+
+                // Clean the selected value to handle any whitespace issues
+                string selectedValue = cboTopSelect.Text.Trim();
+
+                if (selectedValue == "SORT BY QTY")
+                {
+                    cm = new SqlCommand(baseQuery + " ORDER BY qty DESC", cn);
+                }
+                else if (selectedValue == "SORT BY TOTAL AMOUNT")
+                {
+                    cm = new SqlCommand(baseQuery + " ORDER BY total DESC", cn);
+                }
+                else
+                {
+                    MessageBox.Show($"Invalid sorting option: '{selectedValue}'\nExpected: 'SORT BY QTY' or 'SORT BY TOTAL AMOUNT'", stitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cn.Close();
+                    return;
+                }
+
+                // Use parameters to prevent SQL injection
+                cm.Parameters.AddWithValue("@startDate", dtp1.Value.ToString("yyyy-MM-dd"));
+                cm.Parameters.AddWithValue("@endDate", dtp2.Value.ToString("yyyy-MM-dd"));
+
+                dr = cm.ExecuteReader();
+                while (dr.Read())
+                {
+                    i++;
+                    dataGridView6.Rows.Add(
+                        i,
+                        dr["pcode"].ToString(),
+                        dr["pdesc"].ToString(),
+                        dr["qty"].ToString(),
+                        double.Parse(dr["total"].ToString()).ToString("#,##0.00")
+                    );
+                }
+                dr.Close();
+                cn.Close();
             }
-            dr.Close();
-            cn.Close();
+            catch (Exception ex)
+            {
+                if (cn.State == ConnectionState.Open)
+                    cn.Close();
+                MessageBox.Show("Error loading records: " + ex.Message, stitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void LoadCancelledOrders()
@@ -247,18 +287,53 @@ namespace POS_and_Inventory_System
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmInventoryReport f = new frmInventoryReport();
-            if (cboTopSelect.Text == "SORT BY QTY")
+
+            // Use the same condition checks as LoadRecord() method
+            if (cboTopSelect.Text.Trim() == "SORT BY QTY")
             {
-                f.LoadTopSelling("select top 10 pcode, pdesc, isnull(sum(qty),0) as  qty, isnull(sum(total),0) as total  from vwSoldItems where sdate between '" + dtp1.Value.ToString("yyyy-MM-dd") + "' and '" + dtp2.Value.ToString("yyyy-MM-dd") + "' and status like 'Sold' group by pcode, pdesc order by qty desc", "From : " + dtp1.Value.ToString() + " To : " + dtp2.Value.ToString(), "TOP SELLING ITEMS SORT BY QUANTITY");
-               
+                // Use the same query structure as LoadRecord() - query from tblCart and tblProduct directly
+                string query = @"SELECT TOP 10 
+                        c.pcode, 
+                        p.pdesc, 
+                        ISNULL(SUM(c.qty), 0) as qty, 
+                        ISNULL(SUM(c.total), 0) as total 
+                        FROM tblCart c 
+                        INNER JOIN tblProduct p ON c.pcode = p.pcode 
+                        WHERE c.sdate BETWEEN '" + dtp1.Value.ToString("yyyy-MM-dd") + "' AND '" + dtp2.Value.ToString("yyyy-MM-dd") + @"' 
+                        AND c.status LIKE 'Sold' 
+                        GROUP BY c.pcode, p.pdesc 
+                        ORDER BY qty DESC";
+
+                f.LoadTopSelling(query,
+                                "From : " + dtp1.Value.ToString() + " To : " + dtp2.Value.ToString(),
+                                "TOP SELLING ITEMS SORT BY QUANTITY");
             }
-            else if (cboTopSelect.Text == "SORT BY TOTAL AMOUNT")
+            else if (cboTopSelect.Text.Trim() == "SORT BY TOTAL AMOUNT")
             {
-                f.LoadTopSelling("select top 10 pcode, pdesc, isnull(sum(qty),0) as  qty, isnull(sum(total),0) as total  from vwSoldItems where sdate between '" + dtp1.Value.ToString("yyyy-MM-dd") + "' and '" + dtp2.Value.ToString("yyyy-MM-dd") + "' and status like 'Sold' group by pcode, pdesc order by total desc", "From : " + dtp1.Value.ToString() + " To : " + dtp2.Value.ToString(), "TOP SELLING ITEMS SORT BY TOTAL AMOUNT");
-                
+                // Use the same query structure as LoadRecord() - query from tblCart and tblProduct directly
+                string query = @"SELECT TOP 10 
+                        c.pcode, 
+                        p.pdesc, 
+                        ISNULL(SUM(c.qty), 0) as qty, 
+                        ISNULL(SUM(c.total), 0) as total 
+                        FROM tblCart c 
+                        INNER JOIN tblProduct p ON c.pcode = p.pcode 
+                        WHERE c.sdate BETWEEN '" + dtp1.Value.ToString("yyyy-MM-dd") + "' AND '" + dtp2.Value.ToString("yyyy-MM-dd") + @"' 
+                        AND c.status LIKE 'Sold' 
+                        GROUP BY c.pcode, p.pdesc 
+                        ORDER BY total DESC";
+
+                f.LoadTopSelling(query,
+                                "From : " + dtp1.Value.ToString() + " To : " + dtp2.Value.ToString(),
+                                "TOP SELLING ITEMS SORT BY TOTAL AMOUNT");
             }
-            
-           f.ShowDialog();
+            else
+            {
+                MessageBox.Show("Please select a valid sorting option before printing.", stitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            f.ShowDialog();
         }
 
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
